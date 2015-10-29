@@ -1,2 +1,2 @@
 # Práctica 2:
-* Instalación y configuración de servicios
+* **Instalación y configuración de servicios**

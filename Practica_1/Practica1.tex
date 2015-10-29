@@ -11,18 +11,18 @@
 
 %*************************************************************
 \section{Concepto de máquina virtual y virtualización}
-\subsection{Cuestión 1} 
-\textit{¿Qué modos y/o tipos de “virtualización” existen? } \newline 
+\subsection{Cuestión 1}
+\textit{¿Qué modos y/o tipos de “virtualización” existen? } \newline
 
 Existen tres tipos principales de virtualización: Paravirtualización, virtualización por hardware  y virtualización por hardware con drivers paravirtualizados.
 
 
 \begin{itemize}
     \item \textbf{Paravirtualización:} En este modo el kernel del SO huésped es modificado ( remplazando las instrucciones no virtualizables con ``hypercalls'' que se comunican directamente con el hipervisor),
-de este modo el SO huésped es capaz de ejecutarse a una velocidad similar a la de la ejecución nativa. Este tipo de virtualización presenta dos problemas, la modificación del SO es complicada y puede hacer difícil su mantenimiento, además, los sistemas operativos no modificables como Windows XP no son soportados. \cite{vmware} \cite{vmoracle} 
-    
+de este modo el SO huésped es capaz de ejecutarse a una velocidad similar a la de la ejecución nativa. Este tipo de virtualización presenta dos problemas, la modificación del SO es complicada y puede hacer difícil su mantenimiento, además, los sistemas operativos no modificables como Windows XP no son soportados. \cite{vmware} \cite{vmoracle}
+
     \item \textbf{Virtualización por hardware o virtualización completa:} En este caso no se necesita ninguna modificación del SO, pero si es necesario que exista soporte para la virtualización por hardware(Intel VT o AMD-V). Con la implementación actual pueden existir algunas penalizaciones de rendimiento en ciertos tipos de huéspedes y tipos de accesos, aunque posee la ventaja de ser compatible con un mayor numero de sistemas operativos. \cite{vmoracle}
-    
+
     \item \textbf{Virtualización por hardware con drivers paravirtualizados:} Este tipo es igual a la virtualización por hardware, pero con una serie de drivers paravirtualizados añadidos que sirven para mejorar la eficiencia de la máquina virtual.\cite{vmoracle}
 \end{itemize}
 
@@ -72,7 +72,7 @@ Fuentes: \cite{vps1} \cite{vps2} \cite{vps3} \cite{vps4}
 }
 \caption{Comparativa proveedores servidores dedicados. }
 \advance\leftskip 5cm
-Fuentes: \cite{serv1} \cite{serv2} \cite{serv3} 
+Fuentes: \cite{serv1} \cite{serv2} \cite{serv3}
 \label{Tabla2}
 \end{table}
 
@@ -80,7 +80,7 @@ Una de las principales diferencias es que en los servidores dedicados te especif
 
 
 
-\subsection{Cuestión 3} 
+\subsection{Cuestión 3}
 
 \textit{¿Qué otros software de virtualización existen además de VMWare y VirtualBox?} \newline
 
@@ -240,8 +240,8 @@ El estado final de las particiones es el mostrado en la Figura \ref{fig3}, como 
 La comprobación de que el RAID 1 funciona, se puede llevar a cabo de dos formas, simulando un fallo hardware mediante software o provocando un fallo hardware real.
 
 \begin{description}
-    \item[Comprobación simulando fallo mediante software:\cite{pruebaraid}] 
-    
+    \item[Comprobación simulando fallo mediante software:\cite{pruebaraid}]
+
  En este caso primero simulamos un fallo de disco (Figura \ref{fig4} ) y vemos que el sistema  sigue funcionado correctamente, por lo que el RAID  está funcionando. Para asegurarnos miramos el estado del disco para comprobar que realmente ha fallado( Figura \ref{fig5} ) y por ultimo, como se puede ver en las Figuras \ref{fig6} y \ref{fig7}, eliminamos el disco que ha fallado y añadimos uno nuevo y comprobamos que el RAID se recupera correctamente ( Figura \ref{fig8} ).
 
                 \begin{figure}[H]
@@ -284,7 +284,7 @@ La comprobación de que el RAID 1 funciona, se puede llevar a cabo de dos formas
                 \end{center}
             \end{figure}
     \item[Comprobación mediante fallo hardware: ]
-    
+
  Esta comprobación consiste en eliminar un disco del la maquina como se puede ver en el Figura \ref{fig9} y comprobar que el sistema arranca sin problemas. Para que el sistema arranque hay que solucionar un problema de Ubuntu como se indica en el anexo A.1(\nameref{praid}), luego el sistema debe iniciar normalmente y por lo tanto el RAID 1 funciona correctamente. Otra forma de probarlo es quitar un disco mientras que la maquina se esta ejecutando, con lo que se obtendría algo muy similar a lo mostrado en la prueba por software.
             \begin{figure}[H]
                 \begin{center}
@@ -306,7 +306,7 @@ La única diferencia que existe entre la versión standard y la datacenter, es e
 \subsubsection{Cuestión 15}
 \textit{Continúe usted con el proceso de definición de RAID1 para los dos discos de 50MiB que ha creado. Muestre el proceso con capturas de pantalla.}\newline
 
-La creación de un RAID1 en Windows Server 2008R2 es bastante simple, ya que básicamente la tarea consiste en seguir los pasos del asistente para crear un volumen reflejado, que es lo mismo que un RAID1.Los pasos mas importantes seguidos para la creación del RAID son los mostrados en las siguientes figuras.
+La creación de un RAID1 en Windows Server 2008R2 es bastante simple, ya que básicamente la tarea consiste en seguir los pasos del asistente para crear un volumen reflejado, que es lo mismo que un RAID1.Los pasos mas importantes seguidos para la creación del RAID son los mostrados en las siguientes figuras. \cite{winraid}
 
 \begin{figure}[H]
     \begin{center}
@@ -387,12 +387,12 @@ La conexión bridge conecta la maquina virtual a internet a través de un adapta
 \section{Editores de texto}
 \subsection{Cuestión opcional 2}
 \textit{¿Qué relación hay entre los atajos de teclado de emacs y los de la consola bash? ¿y entre los de vi y las páginas del manual?}\newline
- 
- La relación entre los atajos de teclado de emacs y bash, es que la edición de línea de comando (Command Line Editing) viene configurada por defecto con el estilo de emacs \cite{bash1}, aunque es posible cambiarlo al estilo de vi mediante la orden \texttt{set -o vi} \cite{bash2}. 
- 
+
+ La relación entre los atajos de teclado de emacs y bash, es que la edición de línea de comando (Command Line Editing) viene configurada por defecto con el estilo de emacs \cite{bash1}, aunque es posible cambiarlo al estilo de vi mediante la orden \texttt{set -o vi} \cite{bash2}.
+
 Del segundo apartado de la pregunta no he conseguido obtener ninguna información.
- 
- 
+
+
 %*************************************************************
 
 
@@ -400,6 +400,6 @@ Del segundo apartado de la pregunta no he conseguido obtener ninguna informació
 
 \newpage
 \bibliographystyle{ieeetr}
-\bibliography{citas} 
+\bibliography{citas}
 
 \end{document}
