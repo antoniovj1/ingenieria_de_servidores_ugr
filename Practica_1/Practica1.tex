@@ -175,7 +175,7 @@ Por otro lado existen los RAID software, en este caso no es necesario hardware a
 \begin{enumerate}[a)]
     \item LVM es una herramienta para la administración de volúmenes lógicos que proporciona una abstracción ( una vista independiente del hardware ) del almacenamiento, dándole al administrador una mayor flexibilidad para asignar espacio, redimensionar volúmenes o para combinar varios volúmenes físicos en uno. También permite crear Snapshots de forma más eficiente.  \cite{lvm1} \cite{lvm2}
     \item Tiene la ventaja de que el tamaño de los volúmenes puede ser cambiado sin necesidad de formatear por lo tanto es más fácil aprovechar al máximo la capacidad del disco, por ejemplo en caso de haber calculado mal el espacio necesario para / de forma que queda sitio sin usar, este espacio desperdiciado se puede pasar a otra partición como /home o en caso de llenarse la partición / se le podría dar espacio de la partición /home si tener que formatear el disco de nuevo, además sería se puede aumentar la capacidad de almacenamiento del servidor sin tener que formatear nada. \cite{lvm3}
-    \item Debería tener un tamaño grande, ya que en este directorio (/var) se almacenan las web.
+    \item Debería tener un tamaño grande, ya que en este directorio (/var) se almacenan las páginas web, emails, bases de datos..., además guarda los datos de algunas aplicaciones como por ejemplo Apache. \cite{var2}  \cite{var}
 \end{enumerate}
 
 \subsubsection{Cuestión 10}
@@ -210,7 +210,7 @@ Los sitemas de archivos ext4 y ext2, son diferentes versiones de una misma famil
     \item El sistema ext4 puede guardar archivos de 16 TB mientras que ext2 puede hasta 2TB.
     \item En ext4 pueden existir más de  32000 subdirectorios.
     \item Ext4 soporta más de $ 2^{32} $ bloques para el sistema de archivos.
-    \item En ext4 pueden existir particiones de hasta 1EB, en ext2 tienen un maximo de 32TB
+    \item En ext4 pueden existir particiones de hasta 1EB, en ext2 tienen un máximo de 32TB
     \item Ext4 tiene journaling, ext2 no.
 \end{itemize}
 
