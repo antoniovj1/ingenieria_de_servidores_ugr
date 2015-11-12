@@ -12,69 +12,206 @@
 %*************************************************************
 
 \section{Instalación de servicios y configuraciones}
-%_____________________________________________________________
+
 \subsection{yum}
+%***********************************************
+%    CUESTIÓN 1
+%***********************************************
 \subsubsection{Cuestión 1}
 \textit{Liste los argumentos de yum necesarios para instalar, buscar y eliminar paquetes.}
+
+%***********************************************
+%    CUESTIÓN 2
+%***********************************************
 \subsubsection{Cuestión 2}
 \textit{Qué ha de hacer para que yum pueda tener acceso a Internet?(Pistas: archivo de configuración en /etc, proxy: stargate.ugr.es:3128). ¿Cómo añadimos un nuevo repositorio?}
-%_____________________________________________________________
+
+
+
 \subsection{apt}
+%***********************************************
+%    CUESTIÓN 3
+%***********************************************
 \subsubsection{Cuestión 3}
 \textit{Indique el comando para buscar un paquete en un repositorio y el correspondiente para instalarlo.}
+
+%***********************************************
+%    CUESTIÓN 4
+%***********************************************
 \subsubsection{Cuestión 4}
 \textit{Indiqué qué ha modificado para que apt pueda acceder a los servidores de paquetes a través del proxy. ¿Cómo añadimos un nuevo repositorio?}
-%_____________________________________________________________
+
+
+
 \subsection{Windows}
-%_____________________________________________________________
+
 \subsection{OpenSuse}
+%***********************************************
+%    CUESTIÓN OP 1
+%***********************************************
 \subsubsection{Cuestión opcional 1}
 \textit{¿Qué gestores utiliza OpenSuse?}
 
 
-%*************************************************************
+
 \section{Gestión de los cortafuegos (firewalls)}
+%***********************************************
+%    CUESTIÓN 5
+%***********************************************
 \subsection{Cuestión 5}
 \textit{¿Qué diferencia hay entre telnet y ssh?}
+
+%***********************************************
+%    CUESTIÓN 6
+%***********************************************
 \subsection{Cuestión 6}
 \textit{¿Para qué sirve la opción -X? Ejecute remotamente, es decir, desde la máquina anfitriona (si tiene Linux) o desde la otra máquina virtual, el comando gedit en una sesión abierta con ssh. ¿Qué ocurre?}
+
+%***********************************************
+%    CUESTIÓN 7
+%***********************************************
 \subsection{Cuestión 7}
-\texttt{Muestre la secuencia de comandos y las modificaciones a los archivos correspondientes para permitir acceder a la consola remota sin introducir la contraseña. (Pistas: ssh-keygen, ssh-copy-id).}
+\textit{Muestre la secuencia de comandos y las modificaciones a los archivos correspondientes para permitir acceder a la consola remota sin introducir la contraseña. (Pistas: ssh-keygen, ssh-copy-id).}
+
+%***********************************************
+%    CUESTIÓN 8
+%***********************************************
 \subsection{Cuestión 8}
-\texttt{¿Qué archivo es el que contiene la configuración de sshd? ¿Qué parámetro hay que modificar para evitar que el usuario root acceda? Cambie el puerto por defecto y compruebe que puede acceder.}
+\textit{¿Qué archivo es el que contiene la configuración de sshd? ¿Qué parámetro hay que modificar para evitar que el usuario root acceda? Cambie el puerto por defecto y compruebe que puede acceder.}
+
+%***********************************************
+%    CUESTIÓN 9
+%***********************************************
 \subsection{Cuestión 9}
 \textit{Indique si es necesario reiniciar el servicio ¿Cómo se reinicia un servicio en Ubuntu? ¿y en CentOS? Muestre la secuencia de comandos para hacerlo.}
+
+
 \subsubsection{Utilidades: screen y terminator}
+%***********************************************
+%    CUESTIÓN OP 2
+%***********************************************
 \paragraph{Cuestión opcional 2}
 \textit{Instale y pruebe terminator. Con screen, pruebe su funcionamiento dejando sesiones ssh abiertas en el servidor y recuperándolas posteriomente.}
+
+
 \subsubsection{Un poco de seguridad: fail2ban}
+%***********************************************
+%    CUESTIÓN OP 3
+%***********************************************
 \paragraph{Cuestión opcional 3}
 \textit{Instale el servicio y pruebe su funcionamiento.}
 
-%*************************************************************
+
 \section{Instalación del servicio de acceso remoto a la consola (Secure Shell)}
 
-%*************************************************************
+
 \section{Administración remota de windows}
 
-%*************************************************************
+
 \section{Instalación de un servidor Web básico}
-%_____________________________________________________________
+
 \subsection{Instalación de Apache + MySQL (o MariaDB) + PHP (o Python) en Linux (LAMP)}
-%_____________________________________________________________
+%***********************************************
+%    CUESTIÓN 10
+%***********************************************
+\subsubsection{Cuestión 10}
+\textit{Muestre los comandos que ha utilizado en Ubuntu Server y en CentOS (aunque en este último puede utilizar la GUI, en tal caso, realice capturas de pantalla)}
+
+%***********************************************
+%    CUESTIÓN 11
+%***********************************************
+\subsubsection{Cuestión 11}
+\textit{Enumere otros servidores web y las páginas de sus proyectos (mínimo 3 sin considerar Apache, IIS ni nginx).}
+
+
 \subsection{Windows: IIS}
-%_____________________________________________________________
+%***********************************************
+%    CUESTIÓN 12
+%***********************************************
+\subsubsection{Cuestión 12}
+\textit{Compruebe que el servicio está funcionando accediendo a la MV a través de la anfitriona.}
+
+
 \subsection{Windows y otros servidores web}
-%_____________________________________________________________
+
 \subsection{Java Servlets}
-%_____________________________________________________________
+%***********************************************
+%    CUESTIÓN OP 4
+%***********************************************
+\subsubsection{Cuestión opcional 4}
+\textit{Realice la instalación de uno de estos dos “web containers” y pruebe su ejecución.}
+
+
 \subsection{Otro tipo de Bases de datos}
+%***********************************************
+%    CUESTIÓN OP 5
+%***********************************************
+\subsubsection{Cuestión opcional 5}
+\textit{Realice la instalación de MongoDB en alguna de sus máquinas virtuales. Cree una colección de documentos y haga una consulta sobre ellos. ( http://docs.mongodb.org/manual/installation/ )}
 
-%*************************************************************
+
 \section{Manteniendo los servicios actualizados}
+%***********************************************
+%    CUESTIÓN 13
+%***********************************************
+\subsection{Cuestión 13}
+\textit{Muestre un ejemplo de uso del comando (p.ej. http://fedoraproject.org/wiki/VMWare)}
 
-%*************************************************************
+
 \section{Administración web}
+%***********************************************
+%    CUESTIÓN 14
+%***********************************************
+\subsection{Cuestión 14}
+\textit{Realice la instalación de esta aplicación y pruebe a modificar algún parámetro de algún servicio. Muestre las capturas de pantalla pertinentes así como el proceso de instalación.}
+
+%***********************************************
+%    CUESTIÓN 15
+%***********************************************
+\subsection{Cuestión 15}
+\textit{Instale phpMyAdmin, indique cómo lo ha realizado y muestre algunas capturas de pantalla.Configure PHP para poder importar BDs mayores de 8MiB (límite por defecto). Indique cómo ha realizado el proceso y muestre capturas de pantalla.}
+
+
+\subsection{Más administradores:ISPCONFIG, DIRECTADMIN, CPANEL, PARALLELS PLESK,... }
+%***********************************************
+%    CUESTIÓN 16
+%***********************************************
+\subsubsection{Cuestión 16}
+\textit{Viste al menos una de las webs de los software mencionados y pruebe las demos que ofrecen realizando capturas de pantalla y comentando qué está realizando.}
+
+
+\section{Automatización de tareas con scripts}
+\subsection{Shells}
+%***********************************************
+%    CUESTIÓN 17
+%***********************************************
+\subsubsection{Cuestión 17}
+\textit{Ejecute los ejemplos de find, grep y escriba el script que haga uso de sed para cambiar la configuración de ssh y reiniciar el servicio.}
+
+%***********************************************
+%    CUESTIÓN OP6
+%***********************************************
+\subsubsection{Cuestión opcional 6}
+\textit{Muestre un ejemplo de uso para awk.}
+
+
+\subsection{PHP}
+\subsection{Python}
+%***********************************************
+%    CUESTIÓN 18
+%***********************************************
+\subsubsection{Cuestión 18}
+\textit{Escriba el script para cambiar el acceso a ssh usando PHP o Python.}
+
+
+\subsection{Windows PowerShell}
+%***********************************************
+%    CUESTIÓN 19
+%***********************************************
+\subsubsection{Cuestión 19}
+\textit{Abra una consola de Powershell y pruebe a parar un programa en ejecución (p.ej), realice capturas de pantalla y comente lo que muestra.}
+
+\subsection{Más automatización}
 
 
 %*************************************************************

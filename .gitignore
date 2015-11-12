@@ -10,4 +10,8 @@
 *.brf
 *.lof
 *.lot
-
+*.bbl
+*.blg
+*.gz
+*~
+*.toc
