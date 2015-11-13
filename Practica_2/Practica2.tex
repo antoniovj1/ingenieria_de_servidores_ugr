@@ -19,13 +19,22 @@
 %***********************************************
 \subsubsection{Cuestión 1}
 \textit{Liste los argumentos de yum necesarios para instalar, buscar y eliminar paquetes.}
+\newline
+
+Los argumentos necesarios son: \cite{manyum}
+\begin{itemize}
+  \item Instalar: \texttt{yum install nombrePaquete}
+  \item Buscar: \texttt{yum search nombre}
+  \item Eliminar: \texttt{yum remove nombrePaquete o yum erase nombrePaquete}
+\end{itemize}
+
 
 %***********************************************
 %    CUESTIÓN 2
 %***********************************************
 \subsubsection{Cuestión 2}
 \textit{Qué ha de hacer para que yum pueda tener acceso a Internet?(Pistas: archivo de configuración en /etc, proxy: stargate.ugr.es:3128). ¿Cómo añadimos un nuevo repositorio?}
-
+\newline
 
 
 \subsection{apt}
@@ -34,13 +43,19 @@
 %***********************************************
 \subsubsection{Cuestión 3}
 \textit{Indique el comando para buscar un paquete en un repositorio y el correspondiente para instalarlo.}
+\newline
 
+Los comandos necesarios son: \cite{manapt1} \cite{manapt2}
+\begin{itemize}
+  \item Buscar: \texttt{apt-cache search expresiónRegular }
+  \item Instalar: \texttt{apt-get install nombrePaquete}
+\end{itemize}
 %***********************************************
 %    CUESTIÓN 4
 %***********************************************
 \subsubsection{Cuestión 4}
 \textit{Indiqué qué ha modificado para que apt pueda acceder a los servidores de paquetes a través del proxy. ¿Cómo añadimos un nuevo repositorio?}
-
+\newline
 
 
 \subsection{Windows}
@@ -51,8 +66,9 @@
 %***********************************************
 \subsubsection{Cuestión opcional 1}
 \textit{¿Qué gestores utiliza OpenSuse?}
-
-
+\newline
+ 
+Los gestores de paquetes usados por OpenSuse son Zypper y Yast, aunque Yast realiza la misma tarea que Zypper pero con interfaz gráfica. \cite{os1} \cite{os2} \cite{os3}
 
 \section{Gestión de los cortafuegos (firewalls)}
 %***********************************************
@@ -60,19 +76,19 @@
 %***********************************************
 \subsection{Cuestión 5}
 \textit{¿Qué diferencia hay entre telnet y ssh?}
-
+\newline
 %***********************************************
 %    CUESTIÓN 6
 %***********************************************
 \subsection{Cuestión 6}
 \textit{¿Para qué sirve la opción -X? Ejecute remotamente, es decir, desde la máquina anfitriona (si tiene Linux) o desde la otra máquina virtual, el comando gedit en una sesión abierta con ssh. ¿Qué ocurre?}
-
+\newline
 %***********************************************
 %    CUESTIÓN 7
 %***********************************************
 \subsection{Cuestión 7}
 \textit{Muestre la secuencia de comandos y las modificaciones a los archivos correspondientes para permitir acceder a la consola remota sin introducir la contraseña. (Pistas: ssh-keygen, ssh-copy-id).}
-
+\newline
 %***********************************************
 %    CUESTIÓN 8
 %***********************************************
