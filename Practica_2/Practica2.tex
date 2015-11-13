@@ -86,6 +86,9 @@ Tanto Telnet ( TELecommunication NETwork ) como SSH ( Secure Shell ) son protoco
 \subsection{Cuestión 6}
 \textit{¿Para qué sirve la opción -X? Ejecute remotamente, es decir, desde la máquina anfitriona (si tiene Linux) o desde la otra máquina virtual, el comando gedit en una sesión abierta con ssh. ¿Qué ocurre?}
 \newline
+
+La opción -X de ssh sirve para que la aplicación se ejecute en el servidor remoto, pero la interfaz gráfica se visualice en el ordenador local ( X11 forwarding ). \cite{sshx} Al ejecutar gedit desde la terminal ssh, se muestra la aplicación como si se estuviese ejecutando en nuestro ordenador, pero en la ventana se indica que se esta ejecutando en otro ordenador ( on Ubuntu). 
+
 %***********************************************
 %    CUESTIÓN 7
 %***********************************************
