@@ -105,11 +105,73 @@ La opción -X de ssh sirve para que la aplicación se ejecute en el servidor rem
 \subsection{Cuestión 7}
 \textit{Muestre la secuencia de comandos y las modificaciones a los archivos correspondientes para permitir acceder a la consola remota sin introducir la contraseña. (Pistas: ssh-keygen, ssh-copy-id).}
 \newline
+
+El proceso para permitir acceder a la consola sin introducir la contraseña consta de dos pasos: En primer lugar debemos crear una clave rsa y una carpeta para guardarla, para ello hacemos uso de los comandos mostrados en la Figura \ref{fig2}. En segundo lugar debemos transferir la clave rsa que acabamos de crear al servidor remoto como se puede ver en la Figura \ref{fig3}, por último realizaremos una conexión ssh a la maquina remota y en caso de que no se nos pida una contraseña habremos verificado que la configuración se ha realizado correctamente ( Figura \ref{fig4}). \cite{passssh}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.45]{imagenes/img2.eps}
+        \caption{Secuencia de comandos necesaria para generar la clave rsa y la carpeta que guarda la clave.}
+        \label{fig2}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.45]{imagenes/img3.eps}
+        \caption{Comando para el traspaso de la clave de la máquina local a la máquina remota.}
+        \label{fig3}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img4.eps}
+        \caption{Comprobación de que podemos realizar una conexión ssh sin necesidad de introducir contraseña.}
+        \label{fig4}
+    \end{center}
+\end{figure}
+
 %***********************************************
 %    CUESTIÓN 8
 %***********************************************
 \subsection{Cuestión 8}
 \textit{¿Qué archivo es el que contiene la configuración de sshd? ¿Qué parámetro hay que modificar para evitar que el usuario root acceda? Cambie el puerto por defecto y compruebe que puede acceder.}
+\newline
+
+La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config que se encuentra en /etc/ssh/sshd\_config. El parámetro que hay que modificar para que root no pueda acceder es PermitRootLogin y establecerlo a no, para cambiar el puerto se debe modificar el parámetro Port, tras realizar estas modificaciones, es necesario reiniciar ssh para que tengan efecto, esto se pude realizar mediante la orden \texttt{sudo restart ssh} ( Ver configuración en las Figuras \ref{fig5} \ref{fig6} y el funcionamiento tras cambiar el puerto en la Figura \ref{fig7} y la imposibilidad de entrar como root en la Figura \ref{fig8} )
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.6]{imagenes/img5.eps}
+        \caption{Configuracion par que root no pueda acceder (PermitRootLogin no).}
+        \label{fig5}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.7]{imagenes/img7.eps}
+        \caption{Cambio del puerto 22 establecido por defecto en ssh al puerto 55555.}
+        \label{fig6}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.6]{imagenes/img6.eps}
+        \caption{Comprobación de que el nuevo puerto ssh es el puerto 55555.}
+        \label{fig7}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.6]{imagenes/img8.eps}
+        \caption{Comprobación de que no es posible acceder con el usuario root.}
+        \label{fig8}
+    \end{center}
+\end{figure}
 
 %***********************************************
 %    CUESTIÓN 9
@@ -123,7 +185,7 @@ La opción -X de ssh sirve para que la aplicación se ejecute en el servidor rem
 %    CUESTIÓN OP 2
 %***********************************************
 \paragraph{Cuestión opcional 2}
-\textit{Instale y pruebe terminator. Con screen, pruebe su funcionamiento dejando sesiones ssh abiertas en el servidor y recuperándolas posteriomente.}
+\textit{Instale y pruebe terminator. Con screen, pruebe su funcionamiento dejando sesiones ssh abiertas en el servidor y recuperándolas posteriormente.}
 
 
 \subsubsection{Un poco de seguridad: fail2ban}
