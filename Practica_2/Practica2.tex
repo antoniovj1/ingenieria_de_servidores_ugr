@@ -106,7 +106,7 @@ La opción -X de ssh sirve para que la aplicación se ejecute en el servidor rem
 \textit{Muestre la secuencia de comandos y las modificaciones a los archivos correspondientes para permitir acceder a la consola remota sin introducir la contraseña. (Pistas: ssh-keygen, ssh-copy-id).}
 \newline
 
-El proceso para permitir acceder a la consola sin introducir la contraseña consta de dos pasos: En primer lugar debemos crear una clave rsa y una carpeta para guardarla, para ello hacemos uso de los comandos mostrados en la Figura \ref{fig2}. En segundo lugar debemos transferir la clave rsa que acabamos de crear al servidor remoto como se puede ver en la Figura \ref{fig3}, por último realizaremos una conexión ssh a la maquina remota y en caso de que no se nos pida una contraseña habremos verificado que la configuración se ha realizado correctamente ( Figura \ref{fig4}). \cite{passssh}
+El proceso para permitir acceder a la consola sin introducir la contraseña consta de dos pasos: En primer lugar debemos crear una clave rsa y una carpeta para guardarla (en caso de que no exista ) , para ello hacemos uso de los comandos mostrados en la Figura \ref{fig2}. En segundo lugar debemos transferir la clave rsa que acabamos de crear al servidor remoto como se puede ver en la Figura \ref{fig3}, por último realizaremos una conexión ssh a la máquina remota y en caso de que no se nos pida una contraseña habremos verificado que la configuración se ha realizado correctamente ( Figura \ref{fig4}). \cite{passssh}
 
 \begin{figure}[H]
     \begin{center}
@@ -139,7 +139,7 @@ El proceso para permitir acceder a la consola sin introducir la contraseña cons
 \textit{¿Qué archivo es el que contiene la configuración de sshd? ¿Qué parámetro hay que modificar para evitar que el usuario root acceda? Cambie el puerto por defecto y compruebe que puede acceder.}
 \newline
 
-La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config que se encuentra en /etc/ssh/sshd\_config. El parámetro que hay que modificar para que root no pueda acceder es PermitRootLogin y establecerlo a no, para cambiar el puerto se debe modificar el parámetro Port, tras realizar estas modificaciones, es necesario reiniciar ssh para que tengan efecto, esto se pude realizar mediante la orden \texttt{sudo restart ssh} ( Ver configuración en las Figuras \ref{fig5} \ref{fig6} y el funcionamiento tras cambiar el puerto en la Figura \ref{fig7} y la imposibilidad de entrar como root en la Figura \ref{fig8} )
+La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config que se encuentra en /etc/ssh/sshd\_config. El parámetro que hay que modificar para que root no pueda acceder es PermitRootLogin y establecerlo a no, para cambiar el puerto se debe modificar el parámetro Port, tras realizar estas modificaciones, es necesario reiniciar ssh para que tengan efecto, esto se pude realizar mediante la orden \texttt{sudo service ssh restart} ( Ver configuración en las Figuras \ref{fig5} \ref{fig6} y el funcionamiento tras cambiar el puerto en la Figura \ref{fig7} y la imposibilidad de entrar como root en la Figura \ref{fig8} ) \cite{sshd}
 
 \begin{figure}[H]
     \begin{center}
@@ -178,7 +178,12 @@ La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config
 %***********************************************
 \subsection{Cuestión 9}
 \textit{Indique si es necesario reiniciar el servicio ¿Cómo se reinicia un servicio en Ubuntu? ¿y en CentOS? Muestre la secuencia de comandos para hacerlo.}
+\newline
 
+En ubuntu un servicio se puede reiniciar de dos formas,de la forma tradicional \newline
+ \texttt{ /etc/init.d/nombreServicio restart } o de haciendo uso de  Upstart \newline
+ \texttt{service nombreServicio start}. \cite{rest1} En CentOS( y RedHat ) los servicios se reinician mediante la orden 
+ \texttt{systemctl restart nombre.service}. \cite{rest2}
 
 \subsubsection{Utilidades: screen y terminator}
 %***********************************************
@@ -186,6 +191,59 @@ La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config
 %***********************************************
 \paragraph{Cuestión opcional 2}
 \textit{Instale y pruebe terminator. Con screen, pruebe su funcionamiento dejando sesiones ssh abiertas en el servidor y recuperándolas posteriormente.}
+\newline
+
+Para instalar terminator en OpenSuse se puede realizar como se indica en la Figura \ref{fig10} . Para mostrar el funcionamiento de screen he ejecutado \texttt{screen} (Figura \ref{fig12}, una vez ahí he ejecutado la orden top (Figura \ref{fig13}) y mediante la combinación \texttt{Ctrl+a+d} me he desconectado de la ejecución de top (Figura \ref{fig14} y para terminar haciendo uso de la orden \texttt{screen -r } he vuelto a conectarme con la terminal que estaba ejecutando top (Figura \ref{fig15}), con esto se muestra que aunque pierdas la conexión con una terminal, luego es posible recuperarla sin ningún tipo de problema. Este proceso se muestra en la Figura \ref{fig16}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.55\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/img11.eps}
+        \caption{Comando para la instalación de terminator.}
+        \label{fig10}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/img10.eps}
+        \caption{Muestra de dos de las caracteristicas mas importantes de terminator,dividir la terminal y la creación distintos perfiles.}
+        \label{fig11}
+    \end{subfigure}
+    \caption{Terminator}
+\end{figure}
+
+
+
+\begin{figure}[H] 
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{imagenes/img12.eps} 
+    \caption{Ejecución de screen.} 
+    \label{fig12} 
+    \vspace{4ex}
+  \end{subfigure}%% 
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{imagenes/img13.eps} 
+    \caption{Ejecución de top.} 
+    \label{fig13} 
+    \vspace{4ex}
+  \end{subfigure} 
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{imagenes/img14.eps} 
+    \caption{Desconexión de la terminal con top.} 
+    \label{fig14} 
+  \end{subfigure}%%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{imagenes/img15.eps} 
+    \caption{Reconexión con top.} 
+    \label{fig15} 
+  \end{subfigure} 
+  \caption{screen}
+  \label{fig16} 
+\end{figure}
+
 
 
 \subsubsection{Un poco de seguridad: fail2ban}
