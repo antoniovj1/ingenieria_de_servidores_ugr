@@ -263,11 +263,34 @@ Para instalar terminator en OpenSuse se puede realizar como se indica en la Figu
 \section{Instalación de un servidor Web básico}
 
 \subsection{Instalación de Apache + MySQL (o MariaDB) + PHP (o Python) en Linux (LAMP)}
+
 %***********************************************
 %    CUESTIÓN 10
 %***********************************************
 \subsubsection{Cuestión 10}
 \textit{Muestre los comandos que ha utilizado en Ubuntu Server y en CentOS (aunque en este último puede utilizar la GUI, en tal caso, realice capturas de pantalla)}
+\newline
+
+Para la instlación de LAMP en Ubuntu, he instalado los paquetes de  PHP, MySql y Apache de forma individual, haciendo uso de los siguientes comandos: \cite{l1 ,l2 ,l3} \newline
+
+\hskip3.5cm \texttt{sudo apt-get install apache2 }
+
+\hskip3.5cm \texttt{sudo apt-get install mysql-server }
+
+\hskip3.5cm \texttt{sudo apt-get install php5 libapache2-mod-php5}
+
+El funcionamiento del servidor se puede ver en la Figura \ref{fig17}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.6]{imagenes/img17.eps}
+        \caption{Ejecución del servidor LAMP.}
+        \label{fig17}
+    \end{center}
+\end{figure}
+
+
+
 
 %***********************************************
 %    CUESTIÓN 11
