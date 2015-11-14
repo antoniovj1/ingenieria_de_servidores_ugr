@@ -182,7 +182,7 @@ La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config
 
 En ubuntu un servicio se puede reiniciar de dos formas,de la forma tradicional \newline
  \texttt{ /etc/init.d/nombreServicio restart } o de haciendo uso de  Upstart \newline
- \texttt{service nombreServicio start}. \cite{rest1} En CentOS( y RedHat ) los servicios se reinician mediante la orden 
+ \texttt{service nombreServicio start}. \cite{rest1} En CentOS( y RedHat ) los servicios se reinician mediante la orden anterior o la orden
  \texttt{systemctl restart nombre.service}. \cite{rest2}
 
 \subsubsection{Utilidades: screen y terminator}
@@ -271,7 +271,7 @@ Para instalar terminator en OpenSuse se puede realizar como se indica en la Figu
 \textit{Muestre los comandos que ha utilizado en Ubuntu Server y en CentOS (aunque en este último puede utilizar la GUI, en tal caso, realice capturas de pantalla)}
 \newline
 
-Para la instlación de LAMP en Ubuntu, he instalado los paquetes de  PHP, MySql y Apache de forma individual, haciendo uso de los siguientes comandos: \cite{l1 ,l2 ,l3} \newline
+Para la instalación de LAMP en Ubuntu, he instalado los paquetes de  PHP, MySql y Apache de forma individual, haciendo uso de los siguientes comandos: \cite{l1 ,l2 ,l3} \newline
 
 \hskip3.5cm \texttt{sudo apt-get install apache2 }
 
@@ -289,23 +289,56 @@ El funcionamiento del servidor se puede ver en la Figura \ref{fig17}
     \end{center}
 \end{figure}
 
+Para la instalación de LAMP en CentOS, en primer lugar abrimos el gestor de software como se indica en la Figura \ref{fig18}, una vez hay buscamos e instalamos los paquetes \textbf{\texttt{httpd}} (apache), \textbf{\texttt{php}}, \textbf{\texttt{mysql-server}} y opcionalmente \textbf{\texttt{php-mysql}} (para usar MySQL desde PHP ) \cite{l4}. En la Figura \ref{fig19} se muestra el servidor en funcionamiento.
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.31]{imagenes/img18.eps}
+        \caption{Acceso al gestor de software en Centos.}
+        \label{fig18}
+    \end{center}
+\end{figure}
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.35]{imagenes/img19.eps}
+        \caption{Servidor Apache en CentOS.}
+        \label{fig19}
+    \end{center}
+\end{figure}
 
 %***********************************************
 %    CUESTIÓN 11
 %***********************************************
 \subsubsection{Cuestión 11}
 \textit{Enumere otros servidores web y las páginas de sus proyectos (mínimo 3 sin considerar Apache, IIS ni nginx).}
+\newline
 
+Algunos servidores web son:
+\begin{itemize}
+  \item \textbf{Abyss Web Server: } \url{www.aprelium.com/abyssws/}
+  \item \textbf{Hiawatha: } \url{www.hiawatha-webserver.org}
+  \item \textbf{Lighttpd: } \url{www.lighttpd.net}
+  \item \textbf{Cherokee: } \url{www.cherokee-project.com}
 
+\end{itemize}
 \subsection{Windows: IIS}
 %***********************************************
 %    CUESTIÓN 12
 %***********************************************
 \subsubsection{Cuestión 12}
 \textit{Compruebe que el servicio está funcionando accediendo a la MV a través de la anfitriona.}
+\newline
 
+Tras realizar el proceso indicado en el punto 3.4.2 de la guia de la práctica para comprobar podemos  el funcionamiento de IIS introduciendo la IP del servidor en el navegador del host y ver que se accede a un web de IIS predeterminada, como se muestra en la Figura \ref{fig 20}.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img20.eps}
+        \caption{Muestra de que IIS se está ejecutando correctamente.}
+        \label{fig20}
+    \end{center}
+\end{figure}
 
 \subsection{Windows y otros servidores web}
 
@@ -330,7 +363,8 @@ El funcionamiento del servidor se puede ver en la Figura \ref{fig17}
 %    CUESTIÓN 13
 %***********************************************
 \subsection{Cuestión 13}
-\textit{Muestre un ejemplo de uso del comando (p.ej. http://fedoraproject.org/wiki/VMWare)}
+\textit{Muestre un ejemplo de uso del comando patch(p.ej. http://fedoraproject.org/wiki/VMWare)}
+\newline
 
 
 \section{Administración web}
