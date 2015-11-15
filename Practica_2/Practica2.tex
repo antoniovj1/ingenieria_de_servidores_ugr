@@ -14,6 +14,9 @@
 \section{Instalación de servicios y configuraciones}
 
 \subsection{yum}
+
+
+
 %***********************************************
 %    CUESTIÓN 1
 %***********************************************
@@ -29,6 +32,10 @@ Los argumentos necesarios son: \cite{manyum}
 \end{itemize}
 
 
+
+
+
+
 %***********************************************
 %    CUESTIÓN 2
 %***********************************************
@@ -37,7 +44,10 @@ Los argumentos necesarios son: \cite{manyum}
 \newline
 
 
+
+
 \subsection{apt}
+
 %***********************************************
 %    CUESTIÓN 3
 %***********************************************
@@ -50,6 +60,10 @@ Los comandos necesarios son: \cite{manapt1} \cite{manapt2}
   \item Buscar: \texttt{apt-cache search expresiónRegular }
   \item Instalar: \texttt{apt-get install nombrePaquete}
 \end{itemize}
+
+
+
+
 %***********************************************
 %    CUESTIÓN 4
 %***********************************************
@@ -59,6 +73,10 @@ Los comandos necesarios son: \cite{manapt1} \cite{manapt2}
 
 
 \subsection{Windows}
+
+
+
+
 
 \subsection{OpenSuse}
 %***********************************************
@@ -70,6 +88,10 @@ Los comandos necesarios son: \cite{manapt1} \cite{manapt2}
  
 Los gestores de paquetes usados por OpenSuse son Zypper y Yast, aunque Yast realiza la misma tarea que Zypper pero con interfaz gráfica. \cite{os1} \cite{os2} \cite{os3}
 
+
+
+
+
 \section{Gestión de los cortafuegos (firewalls)}
 %***********************************************
 %    CUESTIÓN 5
@@ -79,6 +101,10 @@ Los gestores de paquetes usados por OpenSuse son Zypper y Yast, aunque Yast real
 \newline
 
 Tanto Telnet ( TELecommunication NETwork ) como SSH ( Secure Shell ) son protocolos de acceso remoto, la principal diferencia es la seguridad que ofrecen, Telnet no usa ningún tipo de cifrado en las comunicaciones, por lo que se pueden interceptar todos los datos de la comunicación ( incluyendo contraseñas ), debido a esto , su uso no es muy recomendable. SSH , al contrario que Telnet, si es un protocolo seguro, ya que todas las comunicaciones van cifradas.  \cite{sshtle}
+
+
+
+
 
 %***********************************************
 %    CUESTIÓN 6
@@ -92,11 +118,14 @@ La opción -X de ssh sirve para que la aplicación se ejecute en el servidor rem
 \begin{figure}[H]
     \begin{center}
     \advance\leftskip-2.5cm
-        \includegraphics[scale=0.5]{imagenes/img1.eps}
+        \includegraphics[scale=0.5]{imagenes/img1}
         \caption{En esta imagen se muestra el resultado de ejecutar ssh con la opcción -X. Como se puede ver, en la aplicacion gedit se indica que la aplicación no esta siendo ejecutada en la máquina local, si no que se esta ejecutando en Ubuntu.}
         \label{fig1}
     \end{center}
 \end{figure}
+
+
+
 
 
 %***********************************************
@@ -110,7 +139,7 @@ El proceso para permitir acceder a la consola sin introducir la contraseña cons
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.45]{imagenes/img2.eps}
+        \includegraphics[scale=0.45]{imagenes/img2}
         \caption{Secuencia de comandos necesaria para generar la clave rsa y la carpeta que guarda la clave.}
         \label{fig2}
     \end{center}
@@ -118,7 +147,7 @@ El proceso para permitir acceder a la consola sin introducir la contraseña cons
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.45]{imagenes/img3.eps}
+        \includegraphics[scale=0.45]{imagenes/img3}
         \caption{Comando para el traspaso de la clave de la máquina local a la máquina remota.}
         \label{fig3}
     \end{center}
@@ -126,11 +155,17 @@ El proceso para permitir acceder a la consola sin introducir la contraseña cons
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.5]{imagenes/img4.eps}
+        \includegraphics[scale=0.5]{imagenes/img4}
         \caption{Comprobación de que podemos realizar una conexión ssh sin necesidad de introducir contraseña.}
         \label{fig4}
     \end{center}
 \end{figure}
+
+
+
+
+
+
 
 %***********************************************
 %    CUESTIÓN 8
@@ -143,7 +178,7 @@ La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.6]{imagenes/img5.eps}
+        \includegraphics[scale=0.6]{imagenes/img5}
         \caption{Configuracion par que root no pueda acceder (PermitRootLogin no).}
         \label{fig5}
     \end{center}
@@ -151,7 +186,7 @@ La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.7]{imagenes/img7.eps}
+        \includegraphics[scale=0.7]{imagenes/img7}
         \caption{Cambio del puerto 22 establecido por defecto en ssh al puerto 55555.}
         \label{fig6}
     \end{center}
@@ -159,7 +194,7 @@ La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.6]{imagenes/img6.eps}
+        \includegraphics[scale=0.6]{imagenes/img6}
         \caption{Comprobación de que el nuevo puerto ssh es el puerto 55555.}
         \label{fig7}
     \end{center}
@@ -167,11 +202,16 @@ La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.6]{imagenes/img8.eps}
+        \includegraphics[scale=0.6]{imagenes/img8}
         \caption{Comprobación de que no es posible acceder con el usuario root.}
         \label{fig8}
     \end{center}
 \end{figure}
+
+
+
+
+
 
 %***********************************************
 %    CUESTIÓN 9
@@ -184,6 +224,11 @@ En ubuntu un servicio se puede reiniciar de dos formas,de la forma tradicional \
  \texttt{ /etc/init.d/nombreServicio restart } o de haciendo uso de  Upstart \newline
  \texttt{service nombreServicio start}. \cite{rest1} En CentOS( y RedHat ) los servicios se reinician mediante la orden anterior o la orden
  \texttt{systemctl restart nombre.service}. \cite{rest2}
+
+
+
+
+
 
 \subsubsection{Utilidades: screen y terminator}
 %***********************************************
@@ -199,12 +244,12 @@ Para instalar terminator en OpenSuse se puede realizar como se indica en la Figu
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.55\textwidth}
-        \includegraphics[width=\textwidth]{imagenes/img11.eps}
+        \includegraphics[width=\textwidth]{imagenes/img11}
         \caption{Comando para la instalación de terminator.}
         \label{fig10}
     \end{subfigure}
     \begin{subfigure}[b]{0.4\textwidth}
-        \includegraphics[width=\textwidth]{imagenes/img10.eps}
+        \includegraphics[width=\textwidth]{imagenes/img10}
         \caption{Muestra de dos de las caracteristicas mas importantes de terminator,dividir la terminal y la creación distintos perfiles.}
         \label{fig11}
     \end{subfigure}
@@ -216,33 +261,36 @@ Para instalar terminator en OpenSuse se puede realizar como se indica en la Figu
 \begin{figure}[H] 
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{imagenes/img12.eps} 
+    \includegraphics[width=0.75\linewidth]{imagenes/img12} 
     \caption{Ejecución de screen.} 
     \label{fig12} 
     \vspace{4ex}
   \end{subfigure}%% 
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{imagenes/img13.eps} 
+    \includegraphics[width=0.75\linewidth]{imagenes/img13} 
     \caption{Ejecución de top.} 
     \label{fig13} 
     \vspace{4ex}
   \end{subfigure} 
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{imagenes/img14.eps} 
+    \includegraphics[width=0.75\linewidth]{imagenes/img14} 
     \caption{Desconexión de la terminal con top.} 
     \label{fig14} 
   \end{subfigure}%%
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{imagenes/img15.eps} 
+    \includegraphics[width=0.75\linewidth]{imagenes/img15} 
     \caption{Reconexión con top.} 
     \label{fig15} 
   \end{subfigure} 
   \caption{screen}
   \label{fig16} 
 \end{figure}
+
+
+
 
 
 
@@ -264,6 +312,10 @@ Para instalar terminator en OpenSuse se puede realizar como se indica en la Figu
 
 \subsection{Instalación de Apache + MySQL (o MariaDB) + PHP (o Python) en Linux (LAMP)}
 
+
+
+
+
 %***********************************************
 %    CUESTIÓN 10
 %***********************************************
@@ -283,7 +335,7 @@ El funcionamiento del servidor se puede ver en la Figura \ref{fig17}
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.6]{imagenes/img17.eps}
+        \includegraphics[scale=0.6]{imagenes/img17}
         \caption{Ejecución del servidor LAMP.}
         \label{fig17}
     \end{center}
@@ -293,7 +345,7 @@ Para la instalación de LAMP en CentOS, en primer lugar abrimos el gestor de sof
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.31]{imagenes/img18.eps}
+        \includegraphics[scale=0.31]{imagenes/img18}
         \caption{Acceso al gestor de software en Centos.}
         \label{fig18}
     \end{center}
@@ -301,11 +353,16 @@ Para la instalación de LAMP en CentOS, en primer lugar abrimos el gestor de sof
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.35]{imagenes/img19.eps}
+        \includegraphics[scale=0.35]{imagenes/img19}
         \caption{Servidor Apache en CentOS.}
         \label{fig19}
     \end{center}
 \end{figure}
+
+
+
+
+
 
 %***********************************************
 %    CUESTIÓN 11
@@ -320,8 +377,13 @@ Algunos servidores web son:
   \item \textbf{Hiawatha: } \url{www.hiawatha-webserver.org}
   \item \textbf{Lighttpd: } \url{www.lighttpd.net}
   \item \textbf{Cherokee: } \url{www.cherokee-project.com}
-
 \end{itemize}
+
+
+
+
+
+
 \subsection{Windows: IIS}
 %***********************************************
 %    CUESTIÓN 12
@@ -334,7 +396,7 @@ Tras realizar el proceso indicado en el punto 3.4.2 de la guia de la práctica p
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.5]{imagenes/img20.eps}
+        \includegraphics[scale=0.5]{imagenes/img20}
         \caption{Muestra de que IIS se está ejecutando correctamente.}
         \label{fig20}
     \end{center}
@@ -342,12 +404,21 @@ Tras realizar el proceso indicado en el punto 3.4.2 de la guia de la práctica p
 
 \subsection{Windows y otros servidores web}
 
+
+
+
+
 \subsection{Java Servlets}
 %***********************************************
 %    CUESTIÓN OP 4
 %***********************************************
 \subsubsection{Cuestión opcional 4}
 \textit{Realice la instalación de uno de estos dos “web containers” y pruebe su ejecución.}
+
+
+
+
+
 
 
 \subsection{Otro tipo de Bases de datos}
@@ -358,6 +429,11 @@ Tras realizar el proceso indicado en el punto 3.4.2 de la guia de la práctica p
 \textit{Realice la instalación de MongoDB en alguna de sus máquinas virtuales. Cree una colección de documentos y haga una consulta sobre ellos. ( http://docs.mongodb.org/manual/installation/ )}
 
 
+
+
+
+
+
 \section{Manteniendo los servicios actualizados}
 %***********************************************
 %    CUESTIÓN 13
@@ -365,6 +441,12 @@ Tras realizar el proceso indicado en el punto 3.4.2 de la guia de la práctica p
 \subsection{Cuestión 13}
 \textit{Muestre un ejemplo de uso del comando patch(p.ej. http://fedoraproject.org/wiki/VMWare)}
 \newline
+
+
+
+
+
+
 
 
 \section{Administración web}
@@ -379,17 +461,17 @@ La instalacón de Webmin se realiza mediante los pasos indicados en la Figura \r
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{1\textwidth}
-        \includegraphics[width=\textwidth]{imagenes/img22.eps}
+        \includegraphics[width=\textwidth]{imagenes/img22}
         \caption{Instalación de dependencias para webmin.}
     \end{subfigure}
     
         \begin{subfigure}[b]{1\textwidth}
-        \includegraphics[width=\textwidth]{imagenes/img23.eps}
+        \includegraphics[width=\textwidth]{imagenes/img23}
         \caption{Descarga de el paquete .ded de webmin.}
     \end{subfigure}
     
         \begin{subfigure}[b]{1\textwidth}
-        \includegraphics[width=\textwidth]{imagenes/img24.eps}
+        \includegraphics[width=\textwidth]{imagenes/img24}
         \caption{Instalación de webmin.}
     \end{subfigure}
     \caption{Instalación Webmin}
@@ -403,13 +485,13 @@ Para realizar una prueba de webmin he accedido a webmin desde el ordenador local
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.7\textwidth}
-        \includegraphics[width=\textwidth]{imagenes/img25.eps}
+        \includegraphics[width=\textwidth]{imagenes/img25}
     \caption{Pantalla inicial webmin.} 
     \label{fig22} 
     \end{subfigure}
     
         \begin{subfigure}[b]{0.7\textwidth}
-        \includegraphics[width=\textwidth]{imagenes/img26.eps}
+        \includegraphics[width=\textwidth]{imagenes/img26}
     \caption{Panel configuración SSH.} 
     \label{fig23} 
     \end{subfigure}
@@ -419,13 +501,13 @@ Para realizar una prueba de webmin he accedido a webmin desde el ordenador local
     \begin{figure}[H]
     \centering
      \begin{subfigure}[b]{0.7\textwidth}
-        \includegraphics[width=\textwidth]{imagenes/img27.eps}
+        \includegraphics[width=\textwidth]{imagenes/img27}
     \caption{Panel control de acceso SSH.} 
     \label{fig24} 
     \end{subfigure}
     
     \begin{subfigure}[b]{0.7\textwidth}
-       \includegraphics[width=\textwidth]{imagenes/img28.eps}
+       \includegraphics[width=\textwidth]{imagenes/img28}
     \caption{Menú paraseleccionar usuarios que no puede usar SSH .} 
     \label{fig25} 
     \end{subfigure}
@@ -434,11 +516,20 @@ Para realizar una prueba de webmin he accedido a webmin desde el ordenador local
 \end{figure}
 
 
+
+
+
+
 %***********************************************
 %    CUESTIÓN 15
 %***********************************************
 \subsection{Cuestión 15}
-\textit{Instale phpMyAdmin, indique cómo lo ha realizado y muestre algunas capturas de pantalla.Configure PHP para poder importar BDs mayores de 8MiB (límite por defecto). Indique cómo ha realizado el proceso y muestre capturas de pantalla.}
+\textit{Instale phpMyAdmin, indique cómo lo ha realizado y muestre algunas capturas de pantalla. Configure PHP para poder importar BDs mayores de 8MiB (límite por defecto). Indique cómo ha realizado el proceso y muestre capturas de pantalla.}
+
+
+
+
+
 
 
 \subsection{Más administradores:ISPCONFIG, DIRECTADMIN, CPANEL, PARALLELS PLESK,... }
@@ -449,6 +540,12 @@ Para realizar una prueba de webmin he accedido a webmin desde el ordenador local
 \textit{Viste al menos una de las webs de los software mencionados y pruebe las demos que ofrecen realizando capturas de pantalla y comentando qué está realizando.}
 
 
+
+
+
+
+
+
 \section{Automatización de tareas con scripts}
 \subsection{Shells}
 %***********************************************
@@ -457,11 +554,21 @@ Para realizar una prueba de webmin he accedido a webmin desde el ordenador local
 \subsubsection{Cuestión 17}
 \textit{Ejecute los ejemplos de find, grep y escriba el script que haga uso de sed para cambiar la configuración de ssh y reiniciar el servicio.}
 
+
+
+
+
+
+
 %***********************************************
 %    CUESTIÓN OP6
 %***********************************************
 \subsubsection{Cuestión opcional 6}
 \textit{Muestre un ejemplo de uso para awk.}
+
+
+
+
 
 
 \subsection{PHP}
@@ -471,6 +578,9 @@ Para realizar una prueba de webmin he accedido a webmin desde el ordenador local
 %***********************************************
 \subsubsection{Cuestión 18}
 \textit{Escriba el script para cambiar el acceso a ssh usando PHP o Python.}
+
+
+
 
 
 \subsection{Windows PowerShell}
