@@ -372,7 +372,67 @@ Tras realizar el proceso indicado en el punto 3.4.2 de la guia de la práctica p
 %    CUESTIÓN 14
 %***********************************************
 \subsection{Cuestión 14}
-\textit{Realice la instalación de esta aplicación y pruebe a modificar algún parámetro de algún servicio. Muestre las capturas de pantalla pertinentes así como el proceso de instalación.}
+\textit{Realice la instalación de esta aplicación (webmin) y pruebe a modificar algún parámetro de algún servicio. Muestre las capturas de pantalla pertinentes así como el proceso de instalación.}
+\newline
+
+La instalacón de Webmin se realiza mediante los pasos indicados en la Figura \ref{fig21}. \cite{webmin}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/img22.eps}
+        \caption{Instalación de dependencias para webmin.}
+    \end{subfigure}
+    
+        \begin{subfigure}[b]{1\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/img23.eps}
+        \caption{Descarga de el paquete .ded de webmin.}
+    \end{subfigure}
+    
+        \begin{subfigure}[b]{1\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/img24.eps}
+        \caption{Instalación de webmin.}
+    \end{subfigure}
+    \caption{Instalación Webmin}
+     \label{fig21} 
+\end{figure}
+
+Para realizar una prueba de webmin he accedido a webmin desde el ordenador local ( Figura \ref{fig22} ), luego me he dirigido al apartado del servicio SSH ( Figura \ref{fig23} ) y he lo he modificado para que no se puedan realizar conexiones SSH con el usuario ``antonio'' ( Figuras \ref{fig24} \ref{fig25}).
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.7\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/img25.eps}
+    \caption{Pantalla inicial webmin.} 
+    \label{fig22} 
+    \end{subfigure}
+    
+        \begin{subfigure}[b]{0.7\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/img26.eps}
+    \caption{Panel configuración SSH.} 
+    \label{fig23} 
+    \end{subfigure}
+        \caption{Ejemplo de uso de webmin  (Parte 1 ).}  
+\end{figure}
+
+    \begin{figure}[H]
+    \centering
+     \begin{subfigure}[b]{0.7\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/img27.eps}
+    \caption{Panel control de acceso SSH.} 
+    \label{fig24} 
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.7\textwidth}
+       \includegraphics[width=\textwidth]{imagenes/img28.eps}
+    \caption{Menú paraseleccionar usuarios que no puede usar SSH .} 
+    \label{fig25} 
+    \end{subfigure}
+    \caption{Ejemplo de uso de webmin (Parte 2 ).}  
+
+\end{figure}
+
 
 %***********************************************
 %    CUESTIÓN 15
