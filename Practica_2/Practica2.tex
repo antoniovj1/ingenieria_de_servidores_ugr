@@ -222,7 +222,7 @@ La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config
 
 En ubuntu un servicio se puede reiniciar de dos formas,de la forma tradicional \newline
  \texttt{ /etc/init.d/nombreServicio restart } o de haciendo uso de  Upstart \newline
- \texttt{service nombreServicio start}. \cite{rest1} En CentOS( y RedHat ) los servicios se reinician mediante la orden anterior o la orden
+ \texttt{service nombreServicio start}. \cite{rest1} En CentOS( y RedHat ) los servicios se reinician mediante las ordenes anteriores o la orden
  \texttt{systemctl restart nombre.service}. \cite{rest2}
 
 
@@ -525,12 +525,92 @@ Para realizar una prueba de webmin he accedido a webmin desde el ordenador local
 %***********************************************
 \subsection{Cuestión 15}
 \textit{Instale phpMyAdmin, indique cómo lo ha realizado y muestre algunas capturas de pantalla. Configure PHP para poder importar BDs mayores de 8MiB (límite por defecto). Indique cómo ha realizado el proceso y muestre capturas de pantalla.}
+\newline
+
+La instalación de phpMyAdmin se puede realizar como se muestra en las Figuras \ref{fig26}, \ref{fig27}, \ref{fig28}, \ref{fig29}, \ref{fig30} y \ref{fig31} . \cite{pma1}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img29}
+        \caption{Comando para la instalacion de phpMyAdmin en Ubuntu.}
+        \label{fig26}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img30}
+        \caption{Cuadro para seleccionar el servidor web que se quiere configurar.}
+        \label{fig27}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img31}
+        \caption{Selección de la forma para configurar la base de datos.}
+        \label{fig28}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img32}
+        \caption{Selección de una contraseña para el administrados de phpMyAdmin.}
+        \label{fig29}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img33}
+        \caption{Selección de una contraseña para que phpMyAdmin se reguistre en el servidor de bases de datos.}
+        \label{fig30}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.4]{imagenes/img34}
+        \caption{Acceso a phpMyAdmin prara probar su correcto funcionamiento.}
+        \label{fig31}
+    \end{center}
+\end{figure}
 
 
+En mi caso el tamaño límite de importación es de 2 MB ( aunque \texttt{post\_max\_size} es 8MB ) como se puede ver en la Figura \ref{fig32}. Para modificar este límite, debemos editar la configuración de PHP, para ello debemos abrir el archivo php.ini localizado en /etc/php5/apache2/php.ini , ya que estamos usando Apache como servidor web para phpMyAdmin, y editar las variables \texttt{upload\_max\_filesize} que indica el tamaño maximo que puede tener el archivo que se va a subir \cite{php} y  \texttt{post\_max\_size } que indica el tamaño maximo de datos de POST permitido \cite{php1} ( este tamaño debe ser superior al de \texttt{upload\_max\_filesize}) , indicando el nuevo tamaño máximo para la importación, como se puede ver en las Figuras \ref{fig33} y \ref{fig34}. Tras realizar esto y reiniciar Apache ( \texttt{service apache2 restart} ) podemos observar ( Figura \ref{fig35} ) que el nuevo tamaño máximo es el indicado en \texttt{upload\_max\_filesize}.
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img35}
+        \caption{Tamaño máximo de importación original.}
+        \label{fig32}
+    \end{center}
+\end{figure}
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img36}
+        \caption{Modificación de \texttt{upload\_max\_filesize}.}
+        \label{fig33}
+    \end{center}
+\end{figure}
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img37}
+        \caption{Modificación de \texttt{post\_max\_size}.}
+        \label{fig34}
+    \end{center}
+\end{figure}
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img38}
+        \caption{Nuevo tamaño máximo de importación.}
+        \label{fig35}
+    \end{center}
+\end{figure}
 
 \subsection{Más administradores:ISPCONFIG, DIRECTADMIN, CPANEL, PARALLELS PLESK,... }
 %***********************************************
