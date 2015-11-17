@@ -695,9 +695,27 @@ Para pobrar el comando awk, he creado un programa ( Figura \ref{fig36} ) de awk 
 %***********************************************
 \subsubsection{Cuestión 19}
 \textit{Abra una consola de Powershell y pruebe a parar un programa en ejecución (p.ej), realice capturas de pantalla y comente lo que muestra.}
+\newline
 
-\subsection{Más automatización}
+Para ralizar esta prueba en primer lugar he abierto Internet Explorer, luego en PowerShell he ejecutado la orden \texttt{Get-Process} \cite{gpps} ( Figura \ref{fig39} ) para otener el nombre del proceso y por último he ejecutado la orden \texttt{Stop-Porcess} \cite{spps} para detener el proceso (Figura \ref{fig39}). En lugar de usar la opción \texttt{-Name}, se prodria haber detenido el proceso haciendo uso de su Id. 
 
+\begin{figure}[H]
+    \begin{center}
+    \advance\leftskip-1cm
+        \includegraphics[scale=0.7]{imagenes/img42}
+        \caption{Ejecución orden \texttt{Get-Process} en PowerShell.}
+        \label{fig39}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \advance\leftskip-1cm
+        \includegraphics[scale=0.7]{imagenes/img43}
+        \caption{Ejecución orden \texttt{Stop-Porcess -Name} en PowerShell.}
+        \label{fig40}
+    \end{center}
+\end{figure}
 
 %*************************************************************
 \newpage
