@@ -40,11 +40,18 @@ Los argumentos necesarios son: \cite{manyum}
 %    CUESTIÓN 2
 %***********************************************
 \subsubsection{Cuestión 2}
-\textit{Qué ha de hacer para que yum pueda tener acceso a Internet?(Pistas: archivo de configuración en /etc, proxy: stargate.ugr.es:3128). ¿Cómo añadimos un nuevo repositorio?}
+\textit{Qué ha de hacer para que yum pueda tener acceso a Internet? (Pistas: archivo de configuración en /etc, proxy: stargate.ugr.es:3128). ¿Cómo añadimos un nuevo repositorio?}
 \newline
 
+Para conseguir que yum tenga acceso a internet hay que editar el archivo yum.conf y especificar que se va a acceder a intenet a traves de un proxy , como se indica en la Figura \ref{fig41}. \cite{centosproxy}
 
-
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.8]{imagenes/img44}
+        \caption{Edición del archivo yum.conf para que tenga acceso a internet.}
+        \label{fig41}
+    \end{center}
+\end{figure}
 
 \subsection{apt}
 
@@ -392,7 +399,7 @@ Algunos servidores web son:
 \textit{Compruebe que el servicio está funcionando accediendo a la MV a través de la anfitriona.}
 \newline
 
-Tras realizar el proceso indicado en el punto 3.4.2 de la guia de la práctica para comprobar podemos  el funcionamiento de IIS introduciendo la IP del servidor en el navegador del host y ver que se accede a un web de IIS predeterminada, como se muestra en la Figura \ref{fig 20}.
+Tras realizar el proceso indicado en el punto 3.4.2 de la guia de la práctica para comprobar podemos  el funcionamiento de IIS introduciendo la IP del servidor en el navegador del host y ver que se accede a un web de IIS predeterminada, como se muestra en la Figura \ref{fig20}.
 
 \begin{figure}[H]
     \begin{center}
