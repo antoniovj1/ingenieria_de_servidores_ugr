@@ -677,6 +677,42 @@ La ejecución del ejemplo de grep ( \texttt{grep -Af | firefox} ) muestra la inf
 \end{figure}
 
 
+Para probar sed he creado un script que pide un nuevo puerto para SSH y cambia la configuración, como se puede ver en las Figuras \ref{fig46}, \ref{fig47} y \ref{fig48}.\cite{sed}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.8]{imagenes/img49}
+        \caption{Configuración original del puerto de SSH.}
+        \label{fig46}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.65]{imagenes/img50}
+        \caption{Código del script usado para la prueba de sed.}
+        \label{fig47}
+    \end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.72\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/img51}
+        \caption{Ejecución del script.} 
+    \end{subfigure}
+   \begin{subfigure}[b]{0.8\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/img52}
+        \caption{Muestra del nuevo puerto en la configuración de SSH.} 
+    \end{subfigure}
+    \begin{subfigure}[b]{0.8\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/img53}
+        \caption{Prueba de conexión SSH con el nuevo puerto.} 
+    \end{subfigure}
+    \caption{Prueba del script.}  
+    \label{fig48} 
+\end{figure}
 %***********************************************
 %    CUESTIÓN OP6
 %***********************************************
