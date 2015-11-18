@@ -43,7 +43,7 @@ Los argumentos necesarios son: \cite{manyum}
 \textit{Qué ha de hacer para que yum pueda tener acceso a Internet? (Pistas: archivo de configuración en /etc, proxy: stargate.ugr.es:3128). ¿Cómo añadimos un nuevo repositorio?}
 \newline
 
-Para conseguir que yum tenga acceso a internet hay que editar el archivo yum.conf y especificar que se va a acceder a intenet a traves de un proxy , como se indica en la Figura \ref{fig41}. \cite{centosproxy}
+Para conseguir que yum tenga acceso a Internet hay que editar el archivo \textbf{yum.conf} y especificar que se va a acceder a Internet a través de un proxy , como se indica en la Figura \ref{fig41}. \cite{centosproxy}
 
 \begin{figure}[H]
     \begin{center}
@@ -53,6 +53,8 @@ Para conseguir que yum tenga acceso a internet hay que editar el archivo yum.con
     \end{center}
 \end{figure}
 
+
+Para añadir un nuevo repositorio en yum, se debe añadir un archivo \textbf{.repo} que contine la información del repositorio que se quiere añadir al directorio \textbf{/etc/yum.repos.d/} , es importante que el archivo de configuración para cada repositorio incluya el parámetro gpgkey para que la clave publica sea importada automáticamente, en caso de no incluirse, las claves tendrán que ser importadas manualmente. \cite{centosadd}
 \subsection{apt}
 
 %***********************************************
@@ -78,12 +80,11 @@ Los comandos necesarios son: \cite{manapt1} \cite{manapt2}
 \textit{Indiqué qué ha modificado para que apt pueda acceder a los servidores de paquetes a través del proxy. ¿Cómo añadimos un nuevo repositorio?}
 \newline
 
+Para que apt pueda acceder a los repositorios a través de un proxy, debemos editar el archivo \textbf{apt.conf} añadiendo una línea en la que se especifica el proxy que se quiere usar. Un ejemplo de la sintaxis que se puede usar para configurar un proxy para http es \cite{aptpx2}  \texttt{Acquire::http::Proxy "http://proxy:8080";}. \cite{aptpx1} 
 
+Existe dos posibilidades para añadir repositorios a apt, mediante el uso de la orden \texttt{add-apt-repository} \cite{aptadd1} o añadiendo la información del repositorio manualmente\cite{aptadd2}. El uso de la orden \texttt{add-apt-repository }es simple, ya que la orden añade automatiamente el repositorio que se le indique. La segunda forma consiste en editar el archivo \textbf{sources.list }añadiendo una linea con el repositorio que se desea añadir, un ejemplo de la sintaxis de esta linea sería:  \texttt{deb http://ftp.debian.org/debian jessie main
+}
 \subsection{Windows}
-
-
-
-
 
 \subsection{OpenSuse}
 %***********************************************
@@ -126,7 +127,7 @@ La opción -X de ssh sirve para que la aplicación se ejecute en el servidor rem
     \begin{center}
     \advance\leftskip-2.5cm
         \includegraphics[scale=0.5]{imagenes/img1}
-        \caption{En esta imagen se muestra el resultado de ejecutar ssh con la opcción -X. Como se puede ver, en la aplicacion gedit se indica que la aplicación no esta siendo ejecutada en la máquina local, si no que se esta ejecutando en Ubuntu.}
+        \caption{En esta imagen se muestra el resultado de ejecutar ssh con la opción -X. Como se puede ver, en la aplicación gedit se indica que la aplicación no esta siendo ejecutada en la máquina local, si no que se esta ejecutando en Ubuntu.}
         \label{fig1}
     \end{center}
 \end{figure}
@@ -257,7 +258,7 @@ Para instalar terminator en OpenSuse se puede realizar como se indica en la Figu
     \end{subfigure}
     \begin{subfigure}[b]{0.4\textwidth}
         \includegraphics[width=\textwidth]{imagenes/img10}
-        \caption{Muestra de dos de las caracteristicas mas importantes de terminator,dividir la terminal y la creación distintos perfiles.}
+        \caption{Muestra de dos de las características mas importantes de terminator,dividir la terminal y la creación distintos perfiles.}
         \label{fig11}
     \end{subfigure}
     \caption{Terminator}
@@ -641,10 +642,39 @@ En mi caso el tamaño límite de importación es de 2 MB ( aunque \texttt{post\_
 \subsubsection{Cuestión 17}
 \textit{Ejecute los ejemplos de find, grep y escriba el script que haga uso de sed para cambiar la configuración de ssh y reiniciar el servicio.}
 
+La ejecución del ejemplo de grep ( \texttt{grep -Af | firefox} ) muestra la información sobre el proceso firefox en formato completo como muestra en la Figura \ref{fig42}. La ejecucion del comando \texttt{find ~/Documentos -name '*pdf' -exec cp {} ~/PDFs \;} busca los pdf que hay en Documentos y cada vez que encuentra uno, ejecuta cp y lo copia al directorio PDFs, en las Figuras \ref{fig43}, \ref{fig44} y \ref{fig45} , se puede ver el funcionamiento de la orden.
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.6]{imagenes/img45}
+        \caption{Ejecución de la orden \texttt{grep -Af | firefox}.}
+        \label{fig42}
+    \end{center}
+\end{figure}
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img46}
+        \caption{Estado de la carpeta PDFs antes de la ejecución de la orden.}
+        \label{fig43}
+    \end{center}
+\end{figure}
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.6]{imagenes/img47}
+        \caption{Ejecución de la orden  \texttt{find ~/Documentos -name '*pdf' -exec cp {} ~/PDFs \;}. }
+        \label{fig44}
+    \end{center}
+\end{figure}
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img48}
+        \caption{Estado de la carpeta PDFs después de la ejecución de la orden.}
+        \label{fig45}
+    \end{center}
+\end{figure}
 
 
 %***********************************************
@@ -654,7 +684,7 @@ En mi caso el tamaño límite de importación es de 2 MB ( aunque \texttt{post\_
 \textit{Muestre un ejemplo de uso para awk.}
 \newline
 
-Para pobrar el comando awk, he creado un programa ( Figura \ref{fig36} ) de awk que cuenta cuantos números hay que ocupen la tercera posición en una línea en la que los que los elementos estan separados por espacios y además realiza la suma de estos elementos. Para probar el programa he usado un archivo como el de la Figura \ref{fig37}, con el que se obtiene el resultado mostrado en la Figura \ref{fig38}.Para la realización de este programa me he ayudado del manual disponible en \cite{awk}
+Para probar el comando awk, he creado un programa ( Figura \ref{fig36} ) de awk que cuenta cuantos números hay que ocupen la tercera posición en una línea en la que los que los elementos están separados por espacios y además realiza la suma de estos elementos. Para probar el programa he usado un archivo como el de la Figura \ref{fig37}, con el que se obtiene el resultado mostrado en la Figura \ref{fig38}.Para la realización de este programa me he ayudado del manual disponible en \cite{awk}
 
 
 \begin{figure}[H]
