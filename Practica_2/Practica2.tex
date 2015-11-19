@@ -679,6 +679,7 @@ La ejecución del ejemplo de grep ( \texttt{grep -Af | firefox} ) muestra la inf
 
 Para probar sed he creado un script que pide un nuevo puerto para SSH y cambia la configuración, como se puede ver en las Figuras \ref{fig46}, \ref{fig47} y \ref{fig48}.\cite{sed}
 
+
 \begin{figure}[H]
     \begin{center}
         \includegraphics[scale=0.8]{imagenes/img49}
@@ -742,7 +743,7 @@ Para probar el comando awk, he creado un programa ( Figura \ref{fig36} ) de awk 
     \begin{center}
     \advance\leftskip-1cm
         \includegraphics[scale=0.7]{imagenes/img41}
-        \caption{Ejecución del progrma sobre el archivo.}
+        \caption{Ejecución del programa sobre el archivo.}
         \label{fig38}
     \end{center}
 \end{figure}
@@ -758,8 +759,25 @@ Para probar el comando awk, he creado un programa ( Figura \ref{fig36} ) de awk 
 \subsubsection{Cuestión 18}
 \textit{Escriba el script para cambiar el acceso a ssh usando PHP o Python.}
 
+Para este ejercicio he realizado un script en Python que hace modifica la configuración de SSH de modo que permita o no hacer login desde la cuenta de usuario root y luego reinicia el servicio \cite{subp} en la Figura \ref{fig49} se puede ver el código y en la Figura \ref{fig50}, se puede ver una prueba de la ejecución. 
 
+\begin{figure}[H]
+    \begin{center}
+    \advance\leftskip-1cm
+        \includegraphics[scale=0.5]{imagenes/img54}
+        \caption{Código del script en Python.}
+        \label{fig49}
+    \end{center}
+\end{figure}
 
+\begin{figure}[H]
+    \begin{center}
+    \advance\leftskip-1cm
+        \includegraphics[scale=0.5]{imagenes/img55}
+        \caption{Prueba de la ejecución del script.}
+        \label{fig50}
+    \end{center}
+\end{figure}
 
 
 \subsection{Windows PowerShell}
@@ -770,7 +788,7 @@ Para probar el comando awk, he creado un programa ( Figura \ref{fig36} ) de awk 
 \textit{Abra una consola de Powershell y pruebe a parar un programa en ejecución (p.ej), realice capturas de pantalla y comente lo que muestra.}
 \newline
 
-Para ralizar esta prueba en primer lugar he abierto Internet Explorer, luego en PowerShell he ejecutado la orden \texttt{Get-Process} \cite{gpps} ( Figura \ref{fig39} ) para otener el nombre del proceso y por último he ejecutado la orden \texttt{Stop-Porcess} \cite{spps} para detener el proceso (Figura \ref{fig39}). En lugar de usar la opción \texttt{-Name}, se prodria haber detenido el proceso haciendo uso de su Id. 
+Para realizar esta prueba en primer lugar he abierto Internet Explorer, luego en PowerShell he ejecutado la orden \texttt{Get-Process} \cite{gpps} ( Figura \ref{fig39} ) para otener el nombre del proceso y por último he ejecutado la orden \texttt{Stop-Porcess} \cite{spps} para detener el proceso (Figura \ref{fig39}). En lugar de usar la opción \texttt{-Name}, se podría haber detenido el proceso haciendo uso de su Id. 
 
 \begin{figure}[H]
     \begin{center}
