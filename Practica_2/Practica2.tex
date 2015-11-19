@@ -151,12 +151,12 @@ La opción -X de SSH sirve para que la aplicación se ejecute en el servidor rem
 \textit{Muestre la secuencia de comandos y las modificaciones a los archivos correspondientes para permitir acceder a la consola remota sin introducir la contraseña. (Pistas: ssh-keygen, ssh-copy-id).}
 \newline
 
-El proceso para permitir acceder a la consola sin introducir la contraseña consta de dos pasos: En primer lugar debemos crear una clave rsa y una carpeta para guardarla (en caso de que no exista ) , para ello hacemos uso de los comandos mostrados en la figura \ref{fig2}. En segundo lugar debemos transferir la clave rsa que acabamos de crear al servidor remoto como se puede ver en la figura \ref{fig3}, por último realizaremos una conexión SSH a la máquina remota y en caso de que no se nos pida una contraseña habremos verificado que la configuración se ha realizado correctamente ( figura \ref{fig4}). \cite{passssh}
+El proceso para permitir acceder a la consola sin introducir la contraseña consta de dos pasos: En primer lugar debemos crear una clave RSA y una carpeta para guardarla (en caso de que no exista ) , para ello hacemos uso de los comandos mostrados en la figura \ref{fig2}. En segundo lugar debemos transferir la clave RSA que acabamos de crear al servidor remoto como se puede ver en la figura \ref{fig3}, por último realizaremos una conexión SSH a la máquina remota y en caso de que no se nos pida una contraseña habremos verificado que la configuración se ha realizado correctamente ( figura \ref{fig4}). \cite{passssh}
 
 \begin{figure}[H]
     \begin{center}
         \includegraphics[scale=0.45]{imagenes/img2}
-        \caption{Secuencia de comandos necesaria para generar la clave rsa y la carpeta que guarda la clave.}
+        \caption{Secuencia de comandos necesaria para generar la clave RSA y la carpeta que guarda la clave.}
         \label{fig2}
     \end{center}
 \end{figure}
@@ -746,7 +746,7 @@ La ejecución del ejemplo de grep ( \texttt{grep -Af | firefox} ) muestra la inf
 \end{figure}
 
 
-Para probar sed he creado un script que pide un nuevo puerto para SSH y cambia la configuración, como se puede ver en las figuras \ref{fig46}, \ref{fig47} y \ref{fig48}.\cite{sed}
+Para probar sed he creado un script que pide un nuevo puerto para SSH y cambia la configuración del puerto de SSH durante 60 segundos, luego vuelve a poner SSH en el puerto 22, como se puede ver en las figuras \ref{fig46}, \ref{fig47} y \ref{fig48}.\cite{sed}
 
 
 \begin{figure}[H]
@@ -759,6 +759,7 @@ Para probar sed he creado un script que pide un nuevo puerto para SSH y cambia l
 
 \begin{figure}[H]
     \begin{center}
+        \advance\leftskip-2cm
         \includegraphics[scale=0.65]{imagenes/img50}
         \caption{Código del script usado para la prueba de sed.}
         \label{fig47}
