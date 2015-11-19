@@ -122,13 +122,13 @@ Tanto Telnet ( TELecommunication NETwork ) como SSH ( Secure Shell ) son protoco
 \textit{¿Para qué sirve la opción -X? Ejecute remotamente, es decir, desde la máquina anfitriona (si tiene Linux) o desde la otra máquina virtual, el comando gedit en una sesión abierta con ssh. ¿Qué ocurre?}
 \newline
 
-La opción -X de ssh sirve para que la aplicación se ejecute en el servidor remoto, pero la interfaz gráfica se visualice en el ordenador local ( X11 forwarding ). \cite{sshx} Al ejecutar gedit desde la terminal ssh, se muestra la aplicación como si se estuviese ejecutando en nuestro ordenador, pero en la ventana se indica que se esta ejecutando en otro ordenador ( on Ubuntu) figura \ref{fig1}. En la figura \ref{fig57} se muestra que en la en la máquina local no se esta ejecutando ningún proceso de gedit mientras que en la remota si.
+La opción -X de SSH sirve para que la aplicación se ejecute en el servidor remoto, pero la interfaz gráfica se visualice en el ordenador local ( X11 forwarding ). \cite{sshx} Al ejecutar gedit desde la terminal SSH, se muestra la aplicación como si se estuviese ejecutando en nuestro ordenador, pero en la ventana se indica que se esta ejecutando en otro ordenador ( on Ubuntu) figura \ref{fig1}. En la figura \ref{fig57} se muestra que en la en la máquina local no se esta ejecutando ningún proceso de gedit mientras que en la remota si.
 
 \begin{figure}[H]
     \begin{center}
     \advance\leftskip-2.5cm
         \includegraphics[scale=0.5]{imagenes/img1}
-        \caption{En esta imagen se muestra el resultado de ejecutar ssh con la opción -X. Como se puede ver, en la aplicación gedit se indica que la aplicación no esta siendo ejecutada en la máquina local, si no que se esta ejecutando en Ubuntu.}
+        \caption{En esta imagen se muestra el resultado de ejecutar SSH con la opción -X. Como se puede ver, en la aplicación gedit se indica que la aplicación no esta siendo ejecutada en la máquina local, si no que se esta ejecutando en Ubuntu.}
         \label{fig1}
     \end{center}
 \end{figure}
@@ -151,7 +151,7 @@ La opción -X de ssh sirve para que la aplicación se ejecute en el servidor rem
 \textit{Muestre la secuencia de comandos y las modificaciones a los archivos correspondientes para permitir acceder a la consola remota sin introducir la contraseña. (Pistas: ssh-keygen, ssh-copy-id).}
 \newline
 
-El proceso para permitir acceder a la consola sin introducir la contraseña consta de dos pasos: En primer lugar debemos crear una clave rsa y una carpeta para guardarla (en caso de que no exista ) , para ello hacemos uso de los comandos mostrados en la figura \ref{fig2}. En segundo lugar debemos transferir la clave rsa que acabamos de crear al servidor remoto como se puede ver en la figura \ref{fig3}, por último realizaremos una conexión ssh a la máquina remota y en caso de que no se nos pida una contraseña habremos verificado que la configuración se ha realizado correctamente ( figura \ref{fig4}). \cite{passssh}
+El proceso para permitir acceder a la consola sin introducir la contraseña consta de dos pasos: En primer lugar debemos crear una clave rsa y una carpeta para guardarla (en caso de que no exista ) , para ello hacemos uso de los comandos mostrados en la figura \ref{fig2}. En segundo lugar debemos transferir la clave rsa que acabamos de crear al servidor remoto como se puede ver en la figura \ref{fig3}, por último realizaremos una conexión SSH a la máquina remota y en caso de que no se nos pida una contraseña habremos verificado que la configuración se ha realizado correctamente ( figura \ref{fig4}). \cite{passssh}
 
 \begin{figure}[H]
     \begin{center}
@@ -172,7 +172,7 @@ El proceso para permitir acceder a la consola sin introducir la contraseña cons
 \begin{figure}[H]
     \begin{center}
         \includegraphics[scale=0.5]{imagenes/img4}
-        \caption{Comprobación de que podemos realizar una conexión ssh sin necesidad de introducir contraseña.}
+        \caption{Comprobación de que podemos realizar una conexión SSH sin necesidad de introducir contraseña.}
         \label{fig4}
     \end{center}
 \end{figure}
@@ -190,7 +190,7 @@ El proceso para permitir acceder a la consola sin introducir la contraseña cons
 \textit{¿Qué archivo es el que contiene la configuración de sshd? ¿Qué parámetro hay que modificar para evitar que el usuario root acceda? Cambie el puerto por defecto y compruebe que puede acceder.}
 \newline
 
-La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config que se encuentra en /etc/ssh/sshd\_config. El parámetro que hay que modificar para que root no pueda acceder es PermitRootLogin y establecerlo a no, para cambiar el puerto se debe modificar el parámetro Port, tras realizar estas modificaciones, es necesario reiniciar ssh para que tengan efecto, esto se pude realizar mediante la orden \texttt{sudo service ssh restart} ( Ver configuración en las figuras \ref{fig5} \ref{fig6} y el funcionamiento tras cambiar el puerto en la figura \ref{fig7} y la imposibilidad de entrar como root en la figura \ref{fig8} ) \cite{sshd}
+La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config que se encuentra en /etc/ssh/sshd\_config. El parámetro que hay que modificar para que root no pueda acceder es PermitRootLogin y establecerlo a no, para cambiar el puerto se debe modificar el parámetro Port, tras realizar estas modificaciones, es necesario reiniciar SSH para que tengan efecto, esto se pude realizar mediante la orden \texttt{sudo service ssh restart} ( Ver configuración en las figuras \ref{fig5} \ref{fig6} y el funcionamiento tras cambiar el puerto en la figura \ref{fig7} y la imposibilidad de entrar como root en la figura \ref{fig8} ) \cite{sshd}
 
 \begin{figure}[H]
     \begin{center}
@@ -203,7 +203,7 @@ La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config
 \begin{figure}[H]
     \begin{center}
         \includegraphics[scale=0.7]{imagenes/img7}
-        \caption{Cambio del puerto 22 establecido por defecto en ssh al puerto 55555.}
+        \caption{Cambio del puerto 22 establecido por defecto en SSH al puerto 55555.}
         \label{fig6}
     \end{center}
 \end{figure}
@@ -211,7 +211,7 @@ La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config
 \begin{figure}[H]
     \begin{center}
         \includegraphics[scale=0.6]{imagenes/img6}
-        \caption{Comprobación de que el nuevo puerto ssh es el puerto 55555.}
+        \caption{Comprobación de que el nuevo puerto SSH es el puerto 55555.}
         \label{fig7}
     \end{center}
 \end{figure}
@@ -432,7 +432,7 @@ Tras realizar el proceso indicado en el punto 3.4.2 de la guía de la práctica 
 \textit{Realice la instalación de uno de estos dos “web containers” y pruebe su ejecución.}
 \newline
 
-He llevado a cabo la instalación de Tomcat, haciendo uso de la orden mostrada en la figura \ref{tc1}, luego para comprobar que Tomcat se esta ejecutando correctamente, he abierto un navegador web en la máquina local y he accedido a Tomcat (figura \ref{tc2} haciendo uso de la ip de la máquina remota y del puerto 8080, que es el puerto por defecto para Tomcat. \cite{tomcat}
+He llevado a cabo la instalación de Tomcat, haciendo uso de la orden mostrada en la figura \ref{tc1}, luego para comprobar que Tomcat se esta ejecutando correctamente, he abierto un navegador web en la máquina local y he accedido a Tomcat (figura \ref{tc2} haciendo uso de la IP de la máquina remota y del puerto 8080, que es el puerto por defecto para Tomcat. \cite{tomcat}
 
 \begin{figure}[H]
     \begin{center}
