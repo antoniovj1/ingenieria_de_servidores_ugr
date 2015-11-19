@@ -40,7 +40,7 @@ Los argumentos necesarios son: \cite{manyum}
 \textit{Qué ha de hacer para que yum pueda tener acceso a Internet? (Pistas: archivo de configuración en /etc, proxy: stargate.ugr.es:3128). ¿Cómo añadimos un nuevo repositorio?}
 \newline
 
-Para conseguir que yum tenga acceso a Internet hay que editar el archivo \textbf{yum.conf} y especificar que se va a acceder a Internet a través de un proxy , como se indica en la Figura \ref{fig41}. \cite{centosproxy}
+Para conseguir que yum tenga acceso a Internet hay que editar el archivo \textbf{yum.conf} y especificar que se va a acceder a Internet a través de un proxy , como se indica en la figura \ref{fig41}. \cite{centosproxy}
 
 \begin{figure}[H]
     \begin{center}
@@ -122,7 +122,7 @@ Tanto Telnet ( TELecommunication NETwork ) como SSH ( Secure Shell ) son protoco
 \textit{¿Para qué sirve la opción -X? Ejecute remotamente, es decir, desde la máquina anfitriona (si tiene Linux) o desde la otra máquina virtual, el comando gedit en una sesión abierta con ssh. ¿Qué ocurre?}
 \newline
 
-La opción -X de ssh sirve para que la aplicación se ejecute en el servidor remoto, pero la interfaz gráfica se visualice en el ordenador local ( X11 forwarding ). \cite{sshx} Al ejecutar gedit desde la terminal ssh, se muestra la aplicación como si se estuviese ejecutando en nuestro ordenador, pero en la ventana se indica que se esta ejecutando en otro ordenador ( on Ubuntu) Figura \ref{fig1}. 
+La opción -X de ssh sirve para que la aplicación se ejecute en el servidor remoto, pero la interfaz gráfica se visualice en el ordenador local ( X11 forwarding ). \cite{sshx} Al ejecutar gedit desde la terminal ssh, se muestra la aplicación como si se estuviese ejecutando en nuestro ordenador, pero en la ventana se indica que se esta ejecutando en otro ordenador ( on Ubuntu) figura \ref{fig1}. En la figura \ref{fig57} se muestra que en la en la máquina local no se esta ejecutando ningún proceso de gedit mientras que en la remota si.
 
 \begin{figure}[H]
     \begin{center}
@@ -134,7 +134,14 @@ La opción -X de ssh sirve para que la aplicación se ejecute en el servidor rem
 \end{figure}
 
 
-
+\begin{figure}[H]
+    \begin{center}
+    \advance\leftskip-2.5cm
+        \includegraphics[scale=0.5]{imagenes/img60}
+        \caption{Máquina remota ( azul ) en la que se esta ejecutando gedit, junto a la máquina local (negra) en la que aunque se muestra la interfaz gráfica, no se esta ejecutando gedit..}
+        \label{fig57}
+    \end{center}
+\end{figure}
 
 
 %***********************************************
@@ -144,7 +151,7 @@ La opción -X de ssh sirve para que la aplicación se ejecute en el servidor rem
 \textit{Muestre la secuencia de comandos y las modificaciones a los archivos correspondientes para permitir acceder a la consola remota sin introducir la contraseña. (Pistas: ssh-keygen, ssh-copy-id).}
 \newline
 
-El proceso para permitir acceder a la consola sin introducir la contraseña consta de dos pasos: En primer lugar debemos crear una clave rsa y una carpeta para guardarla (en caso de que no exista ) , para ello hacemos uso de los comandos mostrados en la Figura \ref{fig2}. En segundo lugar debemos transferir la clave rsa que acabamos de crear al servidor remoto como se puede ver en la Figura \ref{fig3}, por último realizaremos una conexión ssh a la máquina remota y en caso de que no se nos pida una contraseña habremos verificado que la configuración se ha realizado correctamente ( Figura \ref{fig4}). \cite{passssh}
+El proceso para permitir acceder a la consola sin introducir la contraseña consta de dos pasos: En primer lugar debemos crear una clave rsa y una carpeta para guardarla (en caso de que no exista ) , para ello hacemos uso de los comandos mostrados en la figura \ref{fig2}. En segundo lugar debemos transferir la clave rsa que acabamos de crear al servidor remoto como se puede ver en la figura \ref{fig3}, por último realizaremos una conexión ssh a la máquina remota y en caso de que no se nos pida una contraseña habremos verificado que la configuración se ha realizado correctamente ( figura \ref{fig4}). \cite{passssh}
 
 \begin{figure}[H]
     \begin{center}
@@ -183,7 +190,7 @@ El proceso para permitir acceder a la consola sin introducir la contraseña cons
 \textit{¿Qué archivo es el que contiene la configuración de sshd? ¿Qué parámetro hay que modificar para evitar que el usuario root acceda? Cambie el puerto por defecto y compruebe que puede acceder.}
 \newline
 
-La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config que se encuentra en /etc/ssh/sshd\_config. El parámetro que hay que modificar para que root no pueda acceder es PermitRootLogin y establecerlo a no, para cambiar el puerto se debe modificar el parámetro Port, tras realizar estas modificaciones, es necesario reiniciar ssh para que tengan efecto, esto se pude realizar mediante la orden \texttt{sudo service ssh restart} ( Ver configuración en las Figuras \ref{fig5} \ref{fig6} y el funcionamiento tras cambiar el puerto en la Figura \ref{fig7} y la imposibilidad de entrar como root en la Figura \ref{fig8} ) \cite{sshd}
+La configuración de sshd ( SSH daemon ) se encuentra en el archivo sshd\_config que se encuentra en /etc/ssh/sshd\_config. El parámetro que hay que modificar para que root no pueda acceder es PermitRootLogin y establecerlo a no, para cambiar el puerto se debe modificar el parámetro Port, tras realizar estas modificaciones, es necesario reiniciar ssh para que tengan efecto, esto se pude realizar mediante la orden \texttt{sudo service ssh restart} ( Ver configuración en las figuras \ref{fig5} \ref{fig6} y el funcionamiento tras cambiar el puerto en la figura \ref{fig7} y la imposibilidad de entrar como root en la figura \ref{fig8} ) \cite{sshd}
 
 \begin{figure}[H]
     \begin{center}
@@ -247,7 +254,7 @@ En ubuntu un servicio se puede reiniciar de dos formas,de la forma tradicional \
 \textit{Instale y pruebe terminator. Con screen, pruebe su funcionamiento dejando sesiones ssh abiertas en el servidor y recuperándolas posteriormente.}
 \newline
 
-Para instalar terminator en OpenSuse se puede realizar como se indica en la Figura \ref{fig10} . Para mostrar el funcionamiento de screen he ejecutado \texttt{screen} (Figura \ref{fig12}, una vez ahí he ejecutado la orden top (Figura \ref{fig13}) y mediante la combinación \texttt{Ctrl+a+d} me he desconectado de la ejecución de top (Figura \ref{fig14} y para terminar haciendo uso de la orden \texttt{screen -r } he vuelto a conectarme con la terminal que estaba ejecutando top (Figura \ref{fig15}), con esto se muestra que aunque pierdas la conexión con una terminal, luego es posible recuperarla sin ningún tipo de problema. Este proceso se muestra en la Figura \ref{fig16}
+Para instalar terminator en OpenSuse se puede realizar como se indica en la figura \ref{fig10} . Para mostrar el funcionamiento de screen he ejecutado \texttt{screen} (figura \ref{fig12}, una vez ahí he ejecutado la orden top (figura \ref{fig13}) y mediante la combinación \texttt{Ctrl+a+d} me he desconectado de la ejecución de top (figura \ref{fig14} y para terminar haciendo uso de la orden \texttt{screen -r } he vuelto a conectarme con la terminal que estaba ejecutando top (figura \ref{fig15}), con esto se muestra que aunque pierdas la conexión con una terminal, luego es posible recuperarla sin ningún tipo de problema. Este proceso se muestra en la figura \ref{fig16}
 
 
 \begin{figure}[H]
@@ -340,7 +347,7 @@ Para la instalación de LAMP en Ubuntu, he instalado los paquetes de  PHP, MySql
 
 \hskip3.5cm \texttt{sudo apt-get install php5 libapache2-mod-php5}
 
-El funcionamiento del servidor se puede ver en la Figura \ref{fig17}
+El funcionamiento del servidor se puede ver en la figura \ref{fig17}
 
 \begin{figure}[H]
     \begin{center}
@@ -350,7 +357,7 @@ El funcionamiento del servidor se puede ver en la Figura \ref{fig17}
     \end{center}
 \end{figure}
 
-Para la instalación de LAMP en CentOS, en primer lugar abrimos el gestor de software como se indica en la Figura \ref{fig18}, una vez hay buscamos e instalamos los paquetes \textbf{\texttt{httpd}} (apache), \textbf{\texttt{php}}, \textbf{\texttt{mysql-server}} y opcionalmente \textbf{\texttt{php-mysql}} (para usar MySQL desde PHP ) \cite{l4}. En la Figura \ref{fig19} se muestra el servidor en funcionamiento.
+Para la instalación de LAMP en CentOS, en primer lugar abrimos el gestor de software como se indica en la figura \ref{fig18}, una vez hay buscamos e instalamos los paquetes \textbf{\texttt{httpd}} (apache), \textbf{\texttt{php}}, \textbf{\texttt{mysql-server}} y opcionalmente \textbf{\texttt{php-mysql}} (para usar MySQL desde PHP ) \cite{l4}. En la figura \ref{fig19} se muestra el servidor en funcionamiento.
 
 \begin{figure}[H]
     \begin{center}
@@ -401,7 +408,7 @@ Algunos servidores web son:
 \textit{Compruebe que el servicio está funcionando accediendo a la MV a través de la anfitriona.}
 \newline
 
-Tras realizar el proceso indicado en el punto 3.4.2 de la guia de la práctica para comprobar podemos  el funcionamiento de IIS introduciendo la IP del servidor en el navegador del host y ver que se accede a un web de IIS predeterminada, como se muestra en la Figura \ref{fig20}.
+Tras realizar el proceso indicado en el punto 3.4.2 de la guía de la práctica para comprobar podemos  el funcionamiento de IIS introduciendo la IP del servidor en el navegador del host y ver que se accede a un web de IIS predeterminada, como se muestra en la figura \ref{fig20}.
 
 \begin{figure}[H]
     \begin{center}
@@ -451,12 +458,24 @@ Tras realizar el proceso indicado en el punto 3.4.2 de la guia de la práctica p
 \textit{Muestre un ejemplo de uso del comando patch(p.ej. http://fedoraproject.org/wiki/VMWare)}
 \newline
 
+Para realizar esta cuestión he creado dos archivos que contienen nombres, simulando lo que podrían ser archivos de código, haciendo uso de la orden \texttt{diff} \cite{diff} he creado un archivo que contiene las diferencias entre las dos versiones, es decir, un parche, luego haciendo uso de la orden \texttt{patch} \cite{patch}, que sirve para aplicar parches, y del archivo creado anteriormente con los cambios, he ``parcheado'' la versión antigua del archivo, de modo que ahora  la versión antigua contiene las lineas añadidas en la versión nueva. Los archivos y el proceso para generar y aplicar el parche , se puede ver en las figuras \ref{fig60} y \ref{fig61}.
 
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img61}
+        \caption{Contenido de los archivos usados para hacer la prueba de \texttt{patch}.}
+        \label{fig60}
+    \end{center}
+\end{figure}
 
-
-
-
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img62}
+        \caption{En esta imagen se muestra, en primer lugar, el uso del comando \texttt{diff}, que sirve para detectar las diferencias entre dos archivos, luego se muestras, cual es el contenido del archivo creado con \texttt{diff}, tras esto se puede ver el uso del comando \texttt{patch}, que haciendo uso del archivo con las diferencias, actualiza el archivo antiguo y por último se puede observar como queda actualizado el archivo antiguo.}
+        \label{fig61}
+    \end{center}
+\end{figure}
 
 \section{Administración web}
 %***********************************************
@@ -466,7 +485,7 @@ Tras realizar el proceso indicado en el punto 3.4.2 de la guia de la práctica p
 \textit{Realice la instalación de esta aplicación (webmin) y pruebe a modificar algún parámetro de algún servicio. Muestre las capturas de pantalla pertinentes así como el proceso de instalación.}
 \newline
 
-La instalacón de Webmin se realiza mediante los pasos indicados en la Figura \ref{fig21}. \cite{webmin}
+La instalacón de Webmin se realiza mediante los pasos indicados en la figura \ref{fig21}. \cite{webmin}
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{1\textwidth}
@@ -487,7 +506,7 @@ La instalacón de Webmin se realiza mediante los pasos indicados en la Figura \r
      \label{fig21} 
 \end{figure}
 
-Para realizar una prueba de webmin he accedido a webmin desde el ordenador local ( Figura \ref{fig22} ), luego me he dirigido al apartado del servicio SSH ( Figura \ref{fig23} ) y he lo he modificado para que no se puedan realizar conexiones SSH con el usuario ``antonio'' ( Figuras \ref{fig24} \ref{fig25}).
+Para realizar una prueba de webmin he accedido a webmin desde el ordenador local ( figura \ref{fig22} ), luego me he dirigido al apartado del servicio SSH ( figura \ref{fig23} ) y he lo he modificado para que no se puedan realizar conexiones SSH con el usuario ``antonio'' ( figuras \ref{fig24} \ref{fig25}).
 
 
 
@@ -536,12 +555,12 @@ Para realizar una prueba de webmin he accedido a webmin desde el ordenador local
 \textit{Instale phpMyAdmin, indique cómo lo ha realizado y muestre algunas capturas de pantalla. Configure PHP para poder importar BDs mayores de 8MiB (límite por defecto). Indique cómo ha realizado el proceso y muestre capturas de pantalla.}
 \newline
 
-La instalación de phpMyAdmin se puede realizar como se muestra en las Figuras \ref{fig26}, \ref{fig27}, \ref{fig28}, \ref{fig29}, \ref{fig30} y \ref{fig31} . \cite{pma1}
+La instalación de phpMyAdmin se puede realizar como se muestra en las figuras \ref{fig26}, \ref{fig27}, \ref{fig28}, \ref{fig29}, \ref{fig30} y \ref{fig31} . \cite{pma1}
 
 \begin{figure}[H]
     \begin{center}
         \includegraphics[scale=0.5]{imagenes/img29}
-        \caption{Comando para la instalacion de phpMyAdmin en Ubuntu.}
+        \caption{Comando para la instalación de phpMyAdmin en Ubuntu.}
         \label{fig26}
     \end{center}
 \end{figure}
@@ -573,7 +592,7 @@ La instalación de phpMyAdmin se puede realizar como se muestra en las Figuras \
 \begin{figure}[H]
     \begin{center}
         \includegraphics[scale=0.5]{imagenes/img33}
-        \caption{Selección de una contraseña para que phpMyAdmin se reguistre en el servidor de bases de datos.}
+        \caption{Selección de una contraseña para que phpMyAdmin se registre en el servidor de bases de datos.}
         \label{fig30}
     \end{center}
 \end{figure}
@@ -581,13 +600,13 @@ La instalación de phpMyAdmin se puede realizar como se muestra en las Figuras \
 \begin{figure}[H]
     \begin{center}
         \includegraphics[scale=0.4]{imagenes/img34}
-        \caption{Acceso a phpMyAdmin prara probar su correcto funcionamiento.}
+        \caption{Acceso a phpMyAdmin para probar su correcto funcionamiento.}
         \label{fig31}
     \end{center}
 \end{figure}
 
 
-En mi caso el tamaño límite de importación es de 2 MB ( aunque \texttt{post\_max\_size} es 8MB ) como se puede ver en la Figura \ref{fig32}. Para modificar este límite, debemos editar la configuración de PHP, para ello debemos abrir el archivo php.ini localizado en /etc/php5/apache2/php.ini , ya que estamos usando Apache como servidor web para phpMyAdmin, y editar las variables \texttt{upload\_max\_filesize} que indica el tamaño maximo que puede tener el archivo que se va a subir \cite{php} y  \texttt{post\_max\_size } que indica el tamaño maximo de datos de POST permitido \cite{php1} ( este tamaño debe ser superior al de \texttt{upload\_max\_filesize}) , indicando el nuevo tamaño máximo para la importación, como se puede ver en las Figuras \ref{fig33} y \ref{fig34}. Tras realizar esto y reiniciar Apache ( \texttt{service apache2 restart} ) podemos observar ( Figura \ref{fig35} ) que el nuevo tamaño máximo es el indicado en \texttt{upload\_max\_filesize}.
+En mi caso el tamaño límite de importación es de 2 MB ( aunque \texttt{post\_max\_size} es 8MB ) como se puede ver en la figura \ref{fig32}. Para modificar este límite, debemos editar la configuración de PHP, para ello debemos abrir el archivo php.ini localizado en /etc/php5/apache2/php.ini , ya que estamos usando Apache como servidor web para phpMyAdmin, y editar las variables \texttt{upload\_max\_filesize} que indica el tamaño máximo que puede tener el archivo que se va a subir \cite{php} y  \texttt{post\_max\_size } que indica el tamaño maximo de datos de POST permitido \cite{php1} ( este tamaño debe ser superior al de \texttt{upload\_max\_filesize}) , indicando el nuevo tamaño máximo para la importación, como se puede ver en las figuras \ref{fig33} y \ref{fig34}. Tras realizar esto y reiniciar Apache ( \texttt{service apache2 restart} ) podemos observar ( figura \ref{fig35} ) que el nuevo tamaño máximo es el indicado en \texttt{upload\_max\_filesize}.
 
 \begin{figure}[H]
     \begin{center}
@@ -627,8 +646,9 @@ En mi caso el tamaño límite de importación es de 2 MB ( aunque \texttt{post\_
 %***********************************************
 \subsubsection{Cuestión 16}
 \textit{Viste al menos una de las webs de los software mencionados y pruebe las demos que ofrecen realizando capturas de pantalla y comentando qué está realizando.}
+\newline
 
-En esta cuestión he usado la demo de Parallels Plesk , disponible en \cite{pp}. Desde la pantalla inicial de Parallels Plesk \ref{fig51}, me he dirigido al apartado de configuración de FTP \ref{fig52}, una vez ahi, he creado un nuevo usuario para FTP mediante el formulario mostrado en la Figura \ref{fig53}, una vez rellenado se crea el usuario, sin necesidad de realizar nada mas. Como se puede ver en la Figura \ref{fig54}, el usuario ahora ya aparece en la lista de los usuarios de FTP.
+En esta cuestión he usado la demo de Parallels Plesk , disponible en \cite{pp}. Desde la pantalla inicial de Parallels Plesk \ref{fig51}, me he dirigido al apartado de configuración de FTP \ref{fig52}, una vez ahí, he creado un nuevo usuario para FTP mediante el formulario mostrado en la figura \ref{fig53}, una vez rellenado se crea el usuario, sin necesidad de realizar nada mas. Como se puede ver en la figura \ref{fig54}, el usuario ahora ya aparece en la lista de los usuarios de FTP.
 
 \begin{figure}[H]
     \begin{center}
@@ -673,8 +693,9 @@ En esta cuestión he usado la demo de Parallels Plesk , disponible en \cite{pp}.
 %***********************************************
 \subsubsection{Cuestión 17}
 \textit{Ejecute los ejemplos de find, grep y escriba el script que haga uso de sed para cambiar la configuración de ssh y reiniciar el servicio.}
+\newline
 
-La ejecución del ejemplo de grep ( \texttt{grep -Af | firefox} ) muestra la información sobre el proceso firefox en formato completo como muestra en la Figura \ref{fig42}. La ejecucion del comando \texttt{find ~/Documentos -name '*pdf' -exec cp {} ~/PDFs \;} busca los pdf que hay en Documentos y cada vez que encuentra uno, ejecuta cp y lo copia al directorio PDFs, en las Figuras \ref{fig43}, \ref{fig44} y \ref{fig45} , se puede ver el funcionamiento de la orden.
+La ejecución del ejemplo de grep ( \texttt{grep -Af | firefox} ) muestra la información sobre el proceso firefox en formato completo como muestra en la figura \ref{fig42}. La ejecución del comando \texttt{find ~/Documentos -name '*pdf' -exec cp {} ~/PDFs \;} busca los pdf que hay en Documentos y cada vez que encuentra uno, ejecuta cp y lo copia al directorio PDFs, en las figuras \ref{fig43}, \ref{fig44} y \ref{fig45} , se puede ver el funcionamiento de la orden.
 
 \begin{figure}[H]
     \begin{center}
@@ -709,7 +730,7 @@ La ejecución del ejemplo de grep ( \texttt{grep -Af | firefox} ) muestra la inf
 \end{figure}
 
 
-Para probar sed he creado un script que pide un nuevo puerto para SSH y cambia la configuración, como se puede ver en las Figuras \ref{fig46}, \ref{fig47} y \ref{fig48}.\cite{sed}
+Para probar sed he creado un script que pide un nuevo puerto para SSH y cambia la configuración, como se puede ver en las figuras \ref{fig46}, \ref{fig47} y \ref{fig48}.\cite{sed}
 
 
 \begin{figure}[H]
@@ -753,7 +774,7 @@ Para probar sed he creado un script que pide un nuevo puerto para SSH y cambia l
 \textit{Muestre un ejemplo de uso para awk.}
 \newline
 
-Para probar el comando awk, he creado un programa ( Figura \ref{fig36} ) de awk que cuenta cuantos números hay que ocupen la tercera posición en una línea en la que los que los elementos están separados por espacios y además realiza la suma de estos elementos. Para probar el programa he usado un archivo como el de la Figura \ref{fig37}, con el que se obtiene el resultado mostrado en la Figura \ref{fig38}.Para la realización de este programa me he ayudado del manual disponible en \cite{awk}
+Para probar el comando awk, he creado un programa ( figura \ref{fig36} ) de awk que cuenta cuantos números hay que ocupen la tercera posición en una línea en la que los que los elementos están separados por espacios y además realiza la suma de estos elementos. Para probar el programa he usado un archivo como el de la figura \ref{fig37}, con el que se obtiene el resultado mostrado en la figura \ref{fig38}.Para la realización de este programa me he ayudado del manual disponible en \cite{awk}
 
 
 \begin{figure}[H]
@@ -764,6 +785,7 @@ Para probar el comando awk, he creado un programa ( Figura \ref{fig36} ) de awk 
         \label{fig36}
     \end{center}
 \end{figure}
+
 \begin{figure}[H]
     \begin{center}
         \includegraphics[scale=0.8]{imagenes/img40}
@@ -771,6 +793,7 @@ Para probar el comando awk, he creado un programa ( Figura \ref{fig36} ) de awk 
         \label{fig37}
     \end{center}
 \end{figure}
+
 \begin{figure}[H]
     \begin{center}
     \advance\leftskip-1cm
@@ -790,8 +813,9 @@ Para probar el comando awk, he creado un programa ( Figura \ref{fig36} ) de awk 
 %***********************************************
 \subsubsection{Cuestión 18}
 \textit{Escriba el script para cambiar el acceso a ssh usando PHP o Python.}
+\newline
 
-Para este ejercicio he realizado un script en Python que hace modifica la configuración de SSH de modo que permita o no hacer login desde la cuenta de usuario root y luego reinicia el servicio \cite{subp} en la Figura \ref{fig49} se puede ver el código y en la Figura \ref{fig50}, se puede ver una prueba de la ejecución. 
+Para este ejercicio he realizado un script en Python que hace modifica la configuración de SSH de modo que permita o no hacer login desde la cuenta de usuario root y luego reinicia el servicio \cite{subp} en la figura \ref{fig49} se puede ver el código y en la figura \ref{fig50}, se puede ver una prueba de la ejecución. 
 
 \begin{figure}[H]
     \begin{center}
@@ -820,7 +844,7 @@ Para este ejercicio he realizado un script en Python que hace modifica la config
 \textit{Abra una consola de Powershell y pruebe a parar un programa en ejecución (p.ej), realice capturas de pantalla y comente lo que muestra.}
 \newline
 
-Para realizar esta prueba en primer lugar he abierto Internet Explorer, luego en PowerShell he ejecutado la orden \texttt{Get-Process} \cite{gpps} ( Figura \ref{fig39} ) para obtener el nombre del proceso y por último he ejecutado la orden \texttt{Stop-Porcess} \cite{spps} para detener el proceso (Figura \ref{fig39}). En lugar de usar la opción \texttt{-Name}, se podría haber detenido el proceso haciendo uso de su Id. 
+Para realizar esta prueba en primer lugar he abierto Internet Explorer, luego en PowerShell he ejecutado la orden \texttt{Get-Process} \cite{gpps} ( figura \ref{fig39} ) para obtener el nombre del proceso y por último he ejecutado la orden \texttt{Stop-Porcess} \cite{spps} para detener el proceso (figura \ref{fig39}). En lugar de usar la opción \texttt{-Name}, se podría haber detenido el proceso haciendo uso de su Id. 
 
 \begin{figure}[H]
     \begin{center}
