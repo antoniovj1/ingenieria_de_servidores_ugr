@@ -6,7 +6,6 @@
 \newpage %inserta un salto de página
 \tableofcontents % para generar el índice de contenidos
 \listoffigures
-\listoftables
 \newpage
 
 %*************************************************************
@@ -852,6 +851,23 @@ Para este ejercicio he realizado un script en Python que hace modifica la config
     \end{center}
 \end{figure}
 
+Otro ejemplo de script en python es el mostrado en la figura \ref{py}, que muestra una interesante capacidad de python, la de llamar a un script de bash. Gracias a esto, podemos reutilizar código, y con una sola linea, obtenemos un script en python, que permite modificar los puertos de SSH haciendo uso del script mostrado en la figura \ref{fig47}. El resultado de la ejecución de este script es exactamente igual que el del script de bash mostrado en la cuestión 17 (figura \ref{py2}). 
+\begin{figure}[H]
+    \begin{center}
+    \advance\leftskip-1cm
+        \includegraphics[scale=0.75]{imagenes/py}
+        \caption{Script de python que llama al script de la figura \ref{fig47}. ( Cambia el puerto de SSH durante 60 segundos y luego vuelve a poner el puerto 22).}
+        \label{py}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.75]{imagenes/py2}
+        \caption{Ejecución del script de python.}
+        \label{py2}
+    \end{center}
+\end{figure}
 
 \subsection{Windows PowerShell}
 %***********************************************
