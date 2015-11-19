@@ -33,9 +33,6 @@ Los argumentos necesarios son: \cite{manyum}
 
 
 
-
-
-
 %***********************************************
 %    CUESTIÓN 2
 %***********************************************
@@ -54,8 +51,10 @@ Para conseguir que yum tenga acceso a Internet hay que editar el archivo \textbf
 \end{figure}
 
 
-Para añadir un nuevo repositorio en yum, se debe añadir un archivo \textbf{.repo} que contine la información del repositorio que se quiere añadir al directorio \textbf{/etc/yum.repos.d/} , es importante que el archivo de configuración para cada repositorio incluya el parámetro gpgkey para que la clave publica sea importada automáticamente, en caso de no incluirse, las claves tendrán que ser importadas manualmente. \cite{centosadd}
+Para añadir un nuevo repositorio en yum, se debe añadir un archivo \textbf{.repo} que contiene la información del repositorio que se quiere añadir al directorio \textbf{/etc/yum.repos.d/} , es importante que el archivo de configuración para cada repositorio incluya el parámetro gpgkey para que la clave publica sea importada automáticamente, en caso de no incluirse, las claves tendrán que ser importadas manualmente. \cite{centosadd}
 \subsection{apt}
+
+
 
 %***********************************************
 %    CUESTIÓN 3
@@ -87,6 +86,8 @@ Existe dos posibilidades para añadir repositorios a apt, mediante el uso de la 
 \subsection{Windows}
 
 \subsection{OpenSuse}
+
+
 %***********************************************
 %    CUESTIÓN OP 1
 %***********************************************
@@ -108,7 +109,7 @@ Los gestores de paquetes usados por OpenSuse son Zypper y Yast, aunque Yast real
 \textit{¿Qué diferencia hay entre telnet y ssh?}
 \newline
 
-Tanto Telnet ( TELecommunication NETwork ) como SSH ( Secure Shell ) son protocolos de acceso remoto, la principal diferencia es la seguridad que ofrecen, Telnet no usa ningún tipo de cifrado en las comunicaciones, por lo que se pueden interceptar todos los datos de la comunicación ( incluyendo contraseñas ), debido a esto , su uso no es muy recomendable. SSH , al contrario que Telnet, si es un protocolo seguro, ya que todas las comunicaciones van cifradas.  \cite{sshtle}
+Tanto Telnet ( TELecommunication NETwork ) como SSH ( Secure Shell ) son protocolos de acceso remoto, la principal diferencia es la seguridad que ofrecen, Telnet no usa ningún tipo de cifrado en las comunicaciones, por lo que se pueden interceptar todos los datos de la comunicación ( incluyendo contraseñas ), debido a esto , su uso no es muy recomendable. SSH , al contrario que Telnet, si es un protocolo seguro, ya que todas las comunicaciones van cifradas. \cite{sshtle}
 
 
 
@@ -516,7 +517,7 @@ Para realizar una prueba de webmin he accedido a webmin desde el ordenador local
     
     \begin{subfigure}[b]{0.7\textwidth}
        \includegraphics[width=\textwidth]{imagenes/img28}
-    \caption{Menú paraseleccionar usuarios que no puede usar SSH .} 
+    \caption{Menú para seleccionar usuarios que no puede usar SSH .} 
     \label{fig25} 
     \end{subfigure}
     \caption{Ejemplo de uso de webmin (Parte 2 ).}  
@@ -627,9 +628,40 @@ En mi caso el tamaño límite de importación es de 2 MB ( aunque \texttt{post\_
 \subsubsection{Cuestión 16}
 \textit{Viste al menos una de las webs de los software mencionados y pruebe las demos que ofrecen realizando capturas de pantalla y comentando qué está realizando.}
 
+En esta cuestión he usado la demo de Parallels Plesk , disponible en \cite{pp}. Desde la pantalla inicial de Parallels Plesk \ref{fig51}, me he dirigido al apartado de configuración de FTP \ref{fig52}, una vez ahi, he creado un nuevo usuario para FTP mediante el formulario mostrado en la Figura \ref{fig53}, una vez rellenado se crea el usuario, sin necesidad de realizar nada mas. Como se puede ver en la Figura \ref{fig54}, el usuario ahora ya aparece en la lista de los usuarios de FTP.
 
+\begin{figure}[H]
+    \begin{center}
+        \advance\leftskip-2.2cm
+        \includegraphics[scale=0.35]{imagenes/img56}
+        \caption{Pagina inicial de Parallels Plesk.}
+        \label{fig51}
+    \end{center}
+\end{figure}
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img57}
+        \caption{Panel de configuración de usuarios de FTP.}
+        \label{fig52}
+    \end{center}
+\end{figure}
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img58}
+        \caption{Formulario para crear un nuevo usuario.}
+        \label{fig53}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{imagenes/img59}
+        \caption{Panel de configuración con el nuevo usuario.}
+        \label{fig54}
+    \end{center}
+\end{figure}
 
 
 
@@ -788,7 +820,7 @@ Para este ejercicio he realizado un script en Python que hace modifica la config
 \textit{Abra una consola de Powershell y pruebe a parar un programa en ejecución (p.ej), realice capturas de pantalla y comente lo que muestra.}
 \newline
 
-Para realizar esta prueba en primer lugar he abierto Internet Explorer, luego en PowerShell he ejecutado la orden \texttt{Get-Process} \cite{gpps} ( Figura \ref{fig39} ) para otener el nombre del proceso y por último he ejecutado la orden \texttt{Stop-Porcess} \cite{spps} para detener el proceso (Figura \ref{fig39}). En lugar de usar la opción \texttt{-Name}, se podría haber detenido el proceso haciendo uso de su Id. 
+Para realizar esta prueba en primer lugar he abierto Internet Explorer, luego en PowerShell he ejecutado la orden \texttt{Get-Process} \cite{gpps} ( Figura \ref{fig39} ) para obtener el nombre del proceso y por último he ejecutado la orden \texttt{Stop-Porcess} \cite{spps} para detener el proceso (Figura \ref{fig39}). En lugar de usar la opción \texttt{-Name}, se podría haber detenido el proceso haciendo uso de su Id. 
 
 \begin{figure}[H]
     \begin{center}
