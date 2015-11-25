@@ -1,0 +1,130 @@
+\input{initconf}
+
+\begin{document}
+
+\maketitle % Muestra el Título
+\newpage %inserta un salto de página
+\tableofcontents % para generar el índice de contenidos
+\listoffigures
+\newpage
+%*************************************************************
+
+\section{Monitorización de sistemas Linux}
+\subsection{Conociendo el subsistema de archivos}
+\subsubsection{Cuestión 1}
+5.a) ¿Qué archivo le permite ver qué programas se han
+instalado con el gestor de paquetes? 5.b) ¿Qué significan las terminaciones .
+1.gz o .2.gz de los archivos en ese directorio?
+\subsubsection{Cuestión opcional 1}
+Indique qué comandos ha utilizado para realizarlo así
+como capturas de pantalla del proceso de reconstrucción del RAID.
+\subsection{Progrmando tareas con CRON}
+\subsubsection{Cuestión 2}
+¿qué archivo ha de modificar para programar una tarea?
+Escriba la línea necesaria para ejecutar una vez al día una copia del
+directorio ~/codigo a ~/seguridad/\$fecha donde \$fecha es la fecha actual
+(puede usar el comando date).
+\subsection{Analizando qué ocurre en el kernel con DMESG}
+\subsubsection{Cuestión 3}
+Pruebe a ejecutar el comando, conectar un dispositivo USB y
+vuelva a ejecutar el comando. Copie y pegue la salida del comando.
+(considere usar dmesg | tail). Comente qué observa en la información
+mostrada.
+\section{Monitorizando Windows: PERFMON}
+\subsection{Cuestión 4}
+Ejecute el monitor de “System Performance” y muestre el
+resultado. Incluya capturas de pantalla comentando la información que
+aparece.
+\subsection{Cuestión 5}
+Cree un recopilador de datos definido por el usuario (modo
+avanzado) que incluya tanto el contador de rendimiento como los datos de
+seguimiento:
+Todos los referentes al procesador, al proceso y al servicio web.
+Intervalo de muestra 15 segundos
+Almacene el resultado en el directorio Escritorio\\logs
+Incluya las capturas de pantalla de cada paso.
+\section{Monitorizando el hardware}
+\subsection{Cuestión 6}
+instale alguno de los monitores comentados arriba en su
+máquina y pruebe a ejecutarlos (tenga en cuenta que si lo hace en la
+máquina virtual, los resultados pueden no ser realistas). Alternativamente,
+busque otros monitores para hardware comerciales o de código abierto para
+Windows y Linux.
+\section{Otros monitores del sistema}
+\subsection{MUNIM}
+\subsubsection{Cuestión 7}
+Visite la web del proyecto y acceda a la demo que
+proporcionan (http://demo.munin-monitoring.org/) donde se muestra cómo
+monitorizan un servidor. Monitorice varios parámetros y haga capturas de
+pantalla de lo que está mostrando comentando qué observa.
+\subsection{NAGIOS}
+\subsubsection{Cuestión opcional 2}
+instale Nagios en su sistema (el que prefiera)
+documentando el proceso y muestre el resultado de la monitorización de su
+sistema comentando qué aparece.
+\subsection{GANGLIA}
+\subsubsection{Cuestión opcional 3}
+Haga lo mismo que con Munin.
+\subsection{ZABBIX}
+\subsubsection{Cuestión opcional 4}
+Prueba a instalar este monitor es alguno de sus tres
+sistemas. Realice capturas de pantalla del proceso de instalación y comente
+capturas de pantalla del programa en ejecución.
+\subsection{CACTI}
+\subsubsection{Cuestión opcional 5}
+Pruebe a instalar este monitor es alguno de sus tres
+sistemas. Realice capturas de pantalla del proceso de instalación y comente
+capturas de pantalla del programa en ejecución.
+\subsection{AWSTATS}
+\subsubsection{Cuestión opcional 6}
+Instale el monitor y muestre y comente algunas
+capturas de pantalla.
+\subsection{Monitorizando un servicio (o ejecución de un programa)}
+\subsubsection{Cuestión 8}
+Escriba un breve resumen sobre alguno de los artículos donde
+se muestra el uso de strace o busque otro y coméntelo.
+\section{Profiling}
+\subsection{GPROF Y VALGRIND}
+\subsubsection{Cuestión opcional 7}
+Desarrolle una página en C o C++ y analice su
+comportamiento
+usando
+valgrind.
+Visite
+http://www.cs.tut.fi/~jkorpela/forms/cgic.html para ver un ejemplo sencillo
+de una página web generada por un programa escrito en C.
+\subsection{PHP}
+\subsubsection{Cuestión opcional 8}
+Desarrolle un script en PHP y analice su ejecución
+con alguno (o los dos) profilers.
+\subsection{PYTHON}
+\subsubsection{Cuestión opcional 9}
+Escriba un script en
+python
+y
+analice
+su
+comportamiento usando el profiler presentado.
+
+\subsection{POWERSHELL}
+\subsubsection{Cuestión opcional 10}
+Escriba un script en PowerShell y analice su
+comportamiento usando el profiler presentado.
+\subsection{MySQL}
+\subsubsection{Cuestión 9}
+Acceda a la consola mysql (o a través de phpMyAdmin) y
+muestre el resultado de mostrar el ”profile” de una consulta (la creación de
+la BD y la consulta la puede hacer líbremente).
+\subsection{MongoDB}
+\subsubsection{Cuestión opcional 11}
+Al igual que ha realizado el “profiling” con MySQL,
+realice lo mismo con MongoDB y compare los resultados (use la misma
+información y la misma consulta, hay traductores de consultas SQL a
+Mongo).
+
+%*************************************************************
+\newpage
+\bibliographystyle{ieeetr}
+\bibliography{citas}
+
+\end{document}
