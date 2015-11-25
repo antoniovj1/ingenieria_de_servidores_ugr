@@ -4,6 +4,7 @@
 
 2. **[Instalación y configuración de servicios](https://github.com/antoniovj1/Ingenieria_de_servidores/tree/master/Practica_2)**
 
+3. **[Monitorización de servicios](https://github.com/antoniovj1/Ingenieria_de_servidores/tree/master/Practica_3)**
 ___
 ###### Universidad de Granada (UGR)
 ___
