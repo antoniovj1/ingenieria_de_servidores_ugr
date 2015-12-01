@@ -15,6 +15,35 @@
 
 \subsubsection{Cuestión 1}
 \textit{5.a) ¿Qué archivo le permite ver qué programas se han instalado con el gestor de paquetes? 5.b) ¿Qué significan las terminaciones .1.gz o .2.gz de los archivos en ese directorio?}
+
+\begin{description}
+  \item[a] El archivo en el que se guarda el historial de los paquetes que se han instalado puede variar en función de la distribución de linux, por ejemplo el archivo con el historial de instalaciones en Ubuntu se enecuentra en \texttt{/var/log/apt/history.log } mientras que en OpenSuse se encuentra en /var/log/zypp/history \cite{log1} \cite{log2}. En \cref{fig16} se pueden ver ejemplos de logs de ambas distribuciones. 
+  
+  \item[b] Estos archivos .gz, son archivos generados por logrotate, un programa que permite " una rotación, eliminación, compresión y envió automático de archivos de log" \cite{logrot1}. Estos archivos son paquetes generados automáticamente según la configuración indicada en \texttt{/etc/logrotate.conf} \cite{logrot}. Los números que aparecen en los nombres de los archivos indican que archivo ha sido el ultimo que se ha creado, es decir, el archivo que empieza por ``1'' es el ultimo que se ha creado ( \cref{fig17} ), aunque esto añade un trabajo extra ( renombrar todos los archivos cada vez que se genera uno nuevo ), supone una ventaja a la hora de realizar scripts que administren esos archivos, ya que por ejemplo, es mas facil saber que los cinco logs más nuevos son los logs `` 1-5.gz '' que encontrar que los cinco logs con un numero más grande en su nombre.
+\end{description}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/logu}
+        \caption{Log apt Ubuntu.}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{imagenes/logs}
+        \caption{Log zypper OpenSuse.}
+    \end{subfigure}
+    \caption{Ejemplo historial de instalación.}
+    \label{fig16}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/rot}
+    \caption{En esta imagen se puede ver como los archivos con un numero más bajo en su nombre, se corresponden con fechas mas recientes.}
+    \label{fig17}
+  \end{center}
+\end{figure}
+
 \subsubsection{Cuestión opcional 1}
 \textit{Indique qué comandos ha utilizado para realizarlo así como capturas de pantalla del proceso de reconstrucción del RAID.}
 \subsection{Programando tareas con CRON}
@@ -41,7 +70,7 @@ Para programar una tarea hay que modificar el archivo crontab \cite{cron} \cite{
 \textit{Pruebe a ejecutar el comando, conectar un dispositivo USB y vuelva a ejecutar el comando. Copie y pegue la salida del comando. (considere usar dmesg | tail). Comente qué observa en la información mostrada.}
 \newline
 
-Al ejecutar el comando por promera vez obtenemos la informacion mostrada en la  \cref{fig2}, tras insertar un dispositivo USB, la información mostrada cambia como se muestra en la  \cref{fig3}. En esta informacion se muestran datos acerca del dispositivo UBS conectado, entre los que se incluyen el nombre del producto, el fabricante y el numero de serie entre otros.
+Al ejecutar el comando por primera vez obtenemos la información mostrada en la  \cref{fig2}, tras insertar un dispositivo USB, la información mostrada cambia como se muestra en la  \cref{fig3}. En esta información se muestran datos acerca del dispositivo UBS conectado, entre los que se incluyen el nombre del producto, el fabricante y el numero de serie entre otros.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1\textwidth]{imagenes/dmesg1}
