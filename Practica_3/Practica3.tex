@@ -17,7 +17,7 @@
 \textit{5.a) ¿Qué archivo le permite ver qué programas se han instalado con el gestor de paquetes? 5.b) ¿Qué significan las terminaciones .1.gz o .2.gz de los archivos en ese directorio?}
 
 \begin{description}
-  \item[a] El archivo en el que se guarda el historial de los paquetes que se han instalado puede variar en función de la distribución de linux, por ejemplo el archivo con el historial de instalaciones en Ubuntu se enecuentra en \texttt{/var/log/apt/history.log } mientras que en OpenSuse se encuentra en /var/log/zypp/history \cite{log1} \cite{log2}. En \cref{fig16} se pueden ver ejemplos de logs de ambas distribuciones. 
+  \item[a] El archivo en el que se guarda el historial de los paquetes que se han instalado puede variar en función de la distribución de linux, por ejemplo el archivo con el historial de instalaciones en Ubuntu se enecuentra en \texttt{/var/log/apt/history.log } y en \texttt{/var/log/dpkg.log} mientras que en OpenSuse se encuentra en /var/log/zypp/history \cite{log1} \cite{log2}. En \cref{fig16} se pueden ver ejemplos de logs de ambas distribuciones. 
   
   \item[b] Estos archivos .gz, son archivos generados por logrotate, un programa que permite " una rotación, eliminación, compresión y envió automático de archivos de log" \cite{logrot1}. Estos archivos son paquetes generados automáticamente según la configuración indicada en \texttt{/etc/logrotate.conf} \cite{logrot}. Los números que aparecen en los nombres de los archivos indican que archivo ha sido el ultimo que se ha creado, es decir, el archivo que empieza por ``1'' es el ultimo que se ha creado ( \cref{fig17} ), aunque esto añade un trabajo extra ( renombrar todos los archivos cada vez que se genera uno nuevo ), supone una ventaja a la hora de realizar scripts que administren esos archivos, ya que por ejemplo, es mas facil saber que los cinco logs más nuevos son los logs `` 1-5.gz '' que encontrar que los cinco logs con un numero más grande en su nombre.
 \end{description}
@@ -46,9 +46,27 @@
 
 \subsubsection{Cuestión opcional 1}
 \textit{Indique qué comandos ha utilizado para realizarlo así como capturas de pantalla del proceso de reconstrucción del RAID.}
+\newline
+
+Para realizar esta cuestión, he simulado un fallo por software en el RAID y luego he monitorizado el proceso de reconstrucción. Para esto he realizado el mismo proceso que en la primera práctica, he simulado un fallo, luego he comprobado que el fallo se ha producido correctamente, y por ultimo he retirado y añadido un nuevo disco, este proceso se puede ver en la \cref{fig18}\cite{fault}. Para la monitorización del proceso de reconstrucción se hecho uso de la orden indicada en el guión \texttt{watch -n2 cat /proc/mdstat}, esta orden se encarga de ejecutar un programa periódicamente y mostrarlo en pantalla\cite{watch}, en este caso ejecuta el comando cat cada dos segundos, lo que nos permite ver el como va evolucionando el proceso de reconstrucción del RAID, como se puede ver en \cref{fig19}.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/mdadm}
+    \caption{Proceso para simular un fallo de disco, comprobarlo, eliminar el disco que ha fallado y añadir uno nuevo.}
+    \label{fig18}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/watch}
+    \caption{Vista del proceso de reconstrucción haciendo uso de la orden watch.}
+    \label{fig19}
+  \end{center}
+\end{figure}
+
 \subsection{Programando tareas con CRON}
-
-
 \subsubsection{Cuestión 2}
 \textit{¿qué archivo ha de modificar para programar una tarea? Escriba la línea necesaria para ejecutar una vez al día una copia del directorio ~/codigo a ~/seguridad/\$fecha donde \$fecha es la fecha actual (puede usar el comando date).}
 \newline
@@ -178,7 +196,8 @@ El proceso para la creación de un recopilador de datos con las características
 \textit{Instale alguno de los monitores comentados arriba en su máquina y pruebe a ejecutarlos (tenga en cuenta que si lo hace en la máquina virtual, los resultados pueden no ser realistas). Alternativamente, busque otros monitores para hardware comerciales o de código abierto para Windows y Linux.}
 \newline
 
-Para este apartado he instalado los monitores lm-sensors y hddtemp, usando el comando mostrado en la  \cref{fig13}. Los resultados de la ejecución muestran datos sobre la temperatura y los voltajes, como se muestra en las s \ \crefrange{fig14}{fig15}.
+Para este apartado he instalado los monitores lm-sensors y hddtemp, usando el comando mostrado en la \cref{fig13}. Los resultados de la ejecución muestran datos sobre la temperatura y los voltajes, como se muestra en las \crefrange{fig14}{fig15}.
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1\textwidth]{imagenes/sensors}
@@ -237,6 +256,8 @@ Para este apartado he instalado los monitores lm-sensors y hddtemp, usando el co
 
 \subsubsection{Cuestión 8}
 \textit{Escriba un breve resumen sobre alguno de los artículos donde se muestra el uso de strace o busque otro y coméntelo.}
+
+
 \section{Profiling}
 \subsection{GPROF Y VALGRIND}
 
@@ -248,12 +269,41 @@ Para este apartado he instalado los monitores lm-sensors y hddtemp, usando el co
 
 \subsubsection{Cuestión opcional 8}
 \textit{Desarrolle un script en PHP y analice su ejecución con alguno (o los dos) profilers.}
+
+
 \subsection{PYTHON}
-
-
-
 \subsubsection{Cuestión opcional 9}
 \textit{Escriba un script en python y analice su comportamiento usando el profiler presentado.}
+\newline
+
+Para probar el profiler de python cProfile \cite{cprofile}, he creado un script que lee un archivo con gran cantidad de números y luego comprueba cuales son primos y los guarda en otro archivo ( \cref{fig20} ). Tras la ejecución del script con el profiler, se muestra una tabla ( \cref{fig21} ) en la que se muestra información sobre el tiempo y el numero de llamadas que ha consumido cada función. En el caso de mi script se puede ver que la función que mas tiempo a consumido es la que comprueba si los números son primos.
+\newline
+
+El significado de las diferentes columnas es \cite{cprofile}:
+\begin{enumerate}
+  \item \textbf{ncalls:} Es el número de llamadas que se han realizado a una función.
+  \item \textbf{tottime:} Es el tiempo que ha requerido una función, sin contar el tiempo consumido en llamadas a subfunciones.
+  \item \textbf{percall:} Es el tiempo por llamada, es decir tottime dividido entre ncalls.
+  \item \textbf{cumtime:} Es el tiempo que ha consumido una función incluyendo el tiempo consumido por las subfunciones.
+  \item \textbf{percall:} Es el tiempo cumtime dividido entre las llamadas primitivas (primitive calls).
+  \item \textbf{filename:lineno(function):} Da una descripción de la llamada.
+\end{enumerate}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/primo}
+    \caption{Código del script que busca los números primos.}
+    \label{fig20}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/cprof}
+    \caption{En esta imagen se muestrta el resultado de cProfile. La orden \texttt{-s cumtime} pasada a cProfile, indica que las filas deben estar ordenadas según el tiempo acumulativo, es decir el tiempo que ha requerido la función mas todas las subfunciones a las que esta invoque. }
+    \label{fig21}
+  \end{center}
+\end{figure}
 
 \subsection{POWERSHELL}
 
@@ -265,10 +315,70 @@ Para este apartado he instalado los monitores lm-sensors y hddtemp, usando el co
 
 
 \subsubsection{Cuestión 9}
-\textit{Acceda a la consola mysql (o a través de phpMyAdmin) y muestre el resultado de mostrar el ”profile” de una consulta (la creación de la BD y la consulta la puede hacer líbremente).}
+\textit{Acceda a la consola MySQL (o a través de phpMyAdmin) y muestre el resultado de mostrar el ”profile” de una consulta (la creación de la BD y la consulta la puede hacer líbremente).}
+\newline
+
+Para realizar esta cuestión he descargado una base de datos de ejemplo \cite{db}( con aproximadamente 300000 empleado y 2,8 millones entradas sobre salarios ), que tiene la estructura indicada en \cite{db1} y esta disponible para la descarga en \url{https://launchpad.net/test-db/} luego la he importado haciendo siguiendo los pasos mostrado en las \crefrange{fig22}{fig24}.
+
+Para probar el profile primero lo he habilitado como se puede ver en \cref{fig25}, luego he realizado un consulta buscando que empleados cobran más de 155000\euro como se puede ver en \cref{fig26} y por último he mirado los resultados de la consulta haciendo uso de \texttt{SHOW PROFILES}( \cref{fig27}) y \texttt{SHOW PROFILE}(\cref{fig28}). \texttt{SHOW PROFILES} se muestra una lista de las consultas que se han realizado más recientemente y \texttt{SHOW PROFILE}muestra datos detallados de una consulta especifica realizada, como pueden ser los bloques de entrada y salida, el uso de CPU y los cambios de contexto entre otros. En el ejemplo de (\cref{fig28}) solo se muestra información sobre el tiempo empleado y el uso de CPU. \cite{db2}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/descarga}
+    \caption{Orden para la descarga de la base de datos de ejemplo.}
+    \label{fig22}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/extraccion}
+    \caption{Orden para extraer el archivo descargado.}
+    \label{fig23}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/importacion}
+    \caption{Proceso para importar desde MySQL la base de datos descargada.}
+    \label{fig24}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/prof}
+    \caption{Activación del profiler.}
+    \label{fig25}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/consulta}
+    \caption{Consulta SQL.}
+    \label{fig26}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/profs}
+    \caption{Resultado de ejecutar \texttt{SHOW PROFILES}.}
+    \label{fig27}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/mpr}
+    \caption{Resultado de la ejecución de \texttt{SHOW PROFILE} para nuestra consulta con la opción para mostrar información sobre la CPU.}
+    \label{fig28}
+  \end{center}
+\end{figure}
+
 \subsection{MongoDB}
-
-
 \subsubsection{Cuestión opcional 11}
 \textit{Al igual que ha realizado el “profiling” con MySQL, realice lo mismo con MongoDB y compare los resultados (use la misma información y la misma consulta, hay traductores de consultas SQL a Mongo).}
 
