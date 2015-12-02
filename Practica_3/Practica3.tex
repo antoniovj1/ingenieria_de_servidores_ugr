@@ -106,16 +106,24 @@ Al ejecutar el comando por primera vez obtenemos la información mostrada en la 
 
 \section{Monitorizando Windows: PERFMON}
 \subsection{Cuestión 4}
-\textit{Ejecute el monitor de “System Performance” y muestre el resultado. Incluya capturas de pantalla comentando la información que aparece.}
+\textit{Ejecute el monitor de ``System Performance'' y muestre el resultado. Incluya capturas de pantalla comentando la información que aparece.}
 \newline
 
-Al ejecutar el monitor “System Performance” por primera vez, se obtiene una pantalla como la mostrada en la  \cref{fig4}, en la que aparecen varias cosas: a la izquierda, tenemos un menú para realizar diferentes tareas con el monitor, en la parte central de la pantalla aparecen tres cuadros, dos de ellos para obtener información y uno con un resumen del sistema en el que se muestran estadísticas sobre el disco duro, el procesador,la red y la memoria RAM.
+Para usar el monitor ``System Performance'' debemos abrir una consola y escribir la orden \texttt{perfmon} con lo que se obtiene una pantalla como la mostrada en la  \cref{fig4}, en la que aparecen varias cosas: a la izquierda, tenemos un menú para realizar diferentes tareas con el monitor, en la parte central de la pantalla aparecen tres cuadros, dos de ellos para obtener información y uno con un resumen del sistema en el que se muestran estadísticas sobre el disco duro, el procesador,la red y la memoria RAM. Para acceder a el monitor ``System Performance'' debemos dirigirnos al lado izquierdo y pinchar en ``Conjunto de  recopiladores de datos'' , ``Sistema'' y ``System Performance''. Una vez ahí procedemos a iniciar el conjunto de recopiladores de datos durante un tiempo, luego nos dirigimos a apartado ``Informes'' , ``Sistema'' y ``System Performance'' y ya podemos ver el conjunto de datos recopilados como se muestra en la \cref{fig29}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1\textwidth]{imagenes/perfmon}
-    \caption{Pantalla inicial de “System Performance”.}
+    \includegraphics[width=0.8\textwidth]{imagenes/perfmon}
+    \caption{Pantalla inicial de ``System Performance''.}
     \label{fig4}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{imagenes/perfmon2}
+    \caption{Resultado de la ejecución de ``System Performance'', en la que se puede ver un resumen de los datos recopilados ( uso de memoria, longitud de la cola del disco ,total de \% de CPU...) y la existencia de varios apartados en los que se proporciona gran cantidad de datos.}
+    \label{fig29}
   \end{center}
 \end{figure}
 
@@ -136,7 +144,7 @@ El proceso para la creación de un recopilador de datos con las características
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth]{imagenes/rec2}
-    \caption{Selección del nombre y la forma de creación del recopilador”.}
+    \caption{Selección del nombre y la forma de creación del recopilador''.}
     \label{fig6}
   \end{center}
 \end{figure}
@@ -226,7 +234,7 @@ Para este apartado he instalado los monitores lm-sensors y hddtemp, usando el co
 
 
 \subsubsection{Cuestión 7}
-\textit{Visite la web del proyecto y acceda a la demo que proporcionan (http://demo.munin-monitoring.org/) donde se muestra cómo monitorizan un servidor. Monitorice varios parámetros y haga capturas de pantalla de lo que está mostrando comentando qué observa.}
+\textit{Visite la web del proyecto y acceda a la demo que proporcionan (\url{http://demo.munin-monitoring.org/}) donde se muestra cómo monitorizan un servidor. Monitorice varios parámetros y haga capturas de pantalla de lo que está mostrando comentando qué observa.}
 \subsection{NAGIOS}
 
 
@@ -315,7 +323,7 @@ El significado de las diferentes columnas es \cite{cprofile}:
 
 
 \subsubsection{Cuestión 9}
-\textit{Acceda a la consola MySQL (o a través de phpMyAdmin) y muestre el resultado de mostrar el ”profile” de una consulta (la creación de la BD y la consulta la puede hacer líbremente).}
+\textit{Acceda a la consola MySQL (o a través de phpMyAdmin) y muestre el resultado de mostrar el ''profile'' de una consulta (la creación de la BD y la consulta la puede hacer líbremente).}
 \newline
 
 Para realizar esta cuestión he descargado una base de datos de ejemplo \cite{db}( con aproximadamente 300000 empleado y 2,8 millones entradas sobre salarios ), que tiene la estructura indicada en \cite{db1} y esta disponible para la descarga en \url{https://launchpad.net/test-db/} luego la he importado haciendo siguiendo los pasos mostrado en las \crefrange{fig22}{fig24}.
@@ -380,7 +388,7 @@ Para probar el profile primero lo he habilitado como se puede ver en \cref{fig25
 
 \subsection{MongoDB}
 \subsubsection{Cuestión opcional 11}
-\textit{Al igual que ha realizado el “profiling” con MySQL, realice lo mismo con MongoDB y compare los resultados (use la misma información y la misma consulta, hay traductores de consultas SQL a Mongo).}
+\textit{Al igual que ha realizado el ``profiling'' con MySQL, realice lo mismo con MongoDB y compare los resultados (use la misma información y la misma consulta, hay traductores de consultas SQL a Mongo).}
 
 %*************************************************************
 \newpage
