@@ -235,24 +235,124 @@ Para este apartado he instalado los monitores lm-sensors y hddtemp, usando el co
 
 \subsubsection{Cuestión 7}
 \textit{Visite la web del proyecto y acceda a la demo que proporcionan (\url{http://demo.munin-monitoring.org/}) donde se muestra cómo monitorizan un servidor. Monitorice varios parámetros y haga capturas de pantalla de lo que está mostrando comentando qué observa.}
+
 \subsection{NAGIOS}
-
-
 \subsubsection{Cuestión opcional 2}
 \textit{Instale Nagios en su sistema (el que prefiera) documentando el proceso y muestre el resultado de la monitorización de su sistema comentando qué aparece.}
+
 \subsection{GANGLIA}
-
-
 \subsubsection{Cuestión opcional 3}
 \textit{Haga lo mismo que con Munin.}
+
 \subsection{ZABBIX}
-
-
 \subsubsection{Cuestión opcional 4}
 \textit{Prueba a instalar este monitor es alguno de sus tres sistemas. Realice capturas de pantalla del proceso de instalación y comente capturas de pantalla del programa en ejecución.}
+En esta cuestión he llevado a cabo la instalación y configuración de Zabbix en Ubuntu Server, el proceso se muestra en las \crefrange{fig30}{fig35} \cite{zab}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/zab1}
+    \caption{Descarga del repositorio de ZABBIX.}
+    \label{fig30}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/zab2}
+    \caption{Instalación del paquete descargado en \cref{fig30}.}
+    \label{fig31}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{imagenes/zab3}
+    \caption{Actualización de los paquetes disponibles.}
+    \label{fig32}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/zab4}
+    \caption{Instalación de ZABBIX y sus requisitos.}
+    \label{fig33}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{imagenes/zab5}
+    \caption{Configurcion de una base de datos para ZABBIX.}
+    \label{fig34}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{imagenes/zab6}
+    \caption{Configuración obligatoria de la zona horaria de ZABBIX en el archivo \texttt{/etc/apache2/conf-avaible/zabbix.conf}.}
+    \label{fig35}
+  \end{center}
+\end{figure}
+
+Tras esto, accedemos a Zabbix mediante un navegador web haciendo uso de la IP de nuestro servidor ( 192.168.56.101/zabbix ) y nos aparecerá un asistente de configuración ( \cref{fig36} ) en el que deberemos introducir nuestra contraseña y nuestra IP en lugar de localhost, una vez realizado esto debemos instalar zabbix-agent ( \cref{fig37} ), que es el proceso que se encargara de mandar la información del servidor al servidor de Zabbix ( en este caso son la misma máquina por lo que no hay que modificar la configuración de zabbix-agent donde se indica la IP del servidor). Por último entramos en 192.168.56.101/zabbix y accedemos con el usuario ``Admin'' y la contraseña ``zabbix''. Una vez dentro nos dirigimos al apartado Configuration/Host y habilitamos el servidor que queremos monitorizar ( \cref{fig38} ). Con esto lo tenemos todo funcionando y ya podemos monitorizar nuestro servidor mediante las diferentes opciones que el Zabbix ofrece como el uso de graficas mostrado en la (\cref{fig39}).   
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/zab9}
+    \caption{Instalación de zabbix-agent.}
+    \label{fig36}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/asist}
+    \caption{Asistente de configuracion Zabbix.}
+    \label{fig37}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/enable}
+    \caption{Activación de la monitorización.}
+    \label{fig38}
+  \end{center}
+\end{figure}
+
+
+\begin{figure}[H] 
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{imagenes/g1} 
+    \caption{Gráfica de la carga de la CPU.} 
+    \vspace{4ex}
+  \end{subfigure}%% 
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{imagenes/g2} 
+    \caption{Gráfica de uso de memoria.} 
+    \vspace{4ex}
+  \end{subfigure} 
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{imagenes/g3} 
+    \caption{Gráfica del uso de swap.} 
+  \end{subfigure}%%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{imagenes/g4} 
+    \caption{Gráfica personalizada con diversos parámetros de monitorización.} 
+  \end{subfigure} 
+  \caption{Algunas de las gráficas disponibles en Zabbix. }
+  \label{fig39} 
+\end{figure}
+
+
 \subsection{CACTI}
-
-
 \subsubsection{Cuestión opcional 5}
 \textit{Pruebe a instalar este monitor es alguno de sus tres sistemas. Realice capturas de pantalla del proceso de instalación y comente capturas de pantalla del programa en ejecución.}
 \subsection{AWSTATS}
@@ -260,11 +360,23 @@ Para este apartado he instalado los monitores lm-sensors y hddtemp, usando el co
 
 \subsubsection{Cuestión opcional 6}
 \textit{Instale el monitor y muestre y comente algunas capturas de pantalla.}
-\subsection{Monitorizando un servicio (o ejecución de un programa)}
 
+
+\subsection{Monitorizando un servicio (o ejecución de un programa)}
 \subsubsection{Cuestión 8}
 \textit{Escriba un breve resumen sobre alguno de los artículos donde se muestra el uso de strace o busque otro y coméntelo.}
+\newline
 
+Para esta cuestión he usado el primer articulo \cite{fw}.En el Chad Fowler comienza haciendo una introducción en la que explica que gracias a la herramienta de UNIX strace, pudo solucionar un problema que tenia con un servidor con Lotus Domino que usaba UNIX. Tras esta, se explica que es strace. 
+
+
+Strace es una herramienta de la linea de comandos que permite seguir las llamadas al sistema y las señales recibidas por un proceso en concreto y sus hijos. Tras dar una breve explicación de que es strace, el autor procede a hacer un demostración con un programa en C muy sencillo ( como el típico Hola Mundo ) y muestra la salida producida por la orden \texttt{strace -s 2000 -f ./traceme}, los parámetros pasados a strace significan: \texttt{-s 2000} sirve para indicar el tamaño máximo de los string que se quieren imprimir y \texttt{-f} se usa para indicar que se sigan todos los hijos del programa pasado como argumento. Después en los a partir del párrafo cuatro hasta el final de la sección, se explican algunas de las cosas que se muestran en la salida, como \texttt{execve(), write() y mmap() }.
+
+Tras esta introducción se muestra el uso de strace sobre un proceso real que ya se esta ejecutando, en este apartado para poder conectar con un proceso que ya se esta ejecutando se hace uso de \texttt{-p pid} y ademas se añade la opción \texttt{-o} para indicar donde queremos guardar la salida de strace, ya que al ser un proceso real la salida será demasiado grande como para verla en la terminal, y ademas se muestra que para dejar de seguir al proceso se hace uso de \texttt{Ctrl+C}. Una vez ejecutado strace sobre el proceso se vuelve a dar una explicación sobre lo que se muestra, y se comentan nuevos datos como \texttt{select(), fstat(),recvfrom()}, la utilidad de \texttt{-e raw=} y el comando \texttt{lsof}, tras esto haciendo uso de las cosas nombradas anteriormente y algunas mas se sacan algunas conclusiones sobre el funcionamiento del programa que se esta examinando, por ejemplo que \texttt{accept4()} tiene un devuelve numero relativamente alto de fallos y que el proceso pasa la mayor parte del tiempo esperando algo ( la mayor parte del tiempo es consumida por \texttt{select()}, que se usa para esperar conexiones. 
+Tras esta seccion se explica como usar strace para averiguar que es lo que provoca los problemas de rendimiento en nuestro sistema, para explicar esto se hace uso de un programa en C muy simple y se ejecuta con strace haciendo uso de la opcion \texttt{-T} que sirve para que se muestre el tiempo de cada llamada al sistema y explica que en la vida real podríamos guardar la salida y ordenarla para encontrar las llamadas mas lentas. 
+
+
+Para finalizar el autor menciona que existen más casos en los que se puede usar strace y en relación al problema inicial, dice que consiguieron solucionar el problema del servidor Lotus Domino.
 
 \section{Profiling}
 \subsection{GPROF Y VALGRIND}
