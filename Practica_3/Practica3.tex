@@ -17,18 +17,18 @@
 \textit{5.a) ¿Qué archivo le permite ver qué programas se han instalado con el gestor de paquetes? 5.b) ¿Qué significan las terminaciones .1.gz o .2.gz de los archivos en ese directorio?}
 
 \begin{description}
-  \item[a] El archivo en el que se guarda el historial de los paquetes que se han instalado puede variar en función de la distribución de linux, por ejemplo el archivo con el historial de instalaciones en Ubuntu se enecuentra en \texttt{/var/log/apt/history.log } y en \texttt{/var/log/dpkg.log} mientras que en OpenSuse se encuentra en /var/log/zypp/history \cite{log1} \cite{log2}. En \cref{fig16} se pueden ver ejemplos de logs de ambas distribuciones. 
+  \item[a)] El archivo en el que se guarda el historial de los paquetes que se han instalado puede variar en función de la distribución de linux, por ejemplo el archivo con el historial de instalaciones en Ubuntu se encuentra en  \texttt{/var/log/dpkg.log} (el historial de apt se encuentra en \texttt{/var/log/apt/history.log}) mientras que en OpenSuse se encuentra en /var/log/zypp/history \cite{log1} \cite{log2}. En \cref{fig16} se pueden ver ejemplos de logs de ambas distribuciones. 
   
-  \item[b] Estos archivos .gz, son archivos generados por logrotate, un programa que permite " una rotación, eliminación, compresión y envió automático de archivos de log" \cite{logrot1}. Estos archivos son paquetes generados automáticamente según la configuración indicada en \texttt{/etc/logrotate.conf} \cite{logrot}. Los números que aparecen en los nombres de los archivos indican que archivo ha sido el ultimo que se ha creado, es decir, el archivo que empieza por ``1'' es el ultimo que se ha creado ( \cref{fig17} ), aunque esto añade un trabajo extra ( renombrar todos los archivos cada vez que se genera uno nuevo ), supone una ventaja a la hora de realizar scripts que administren esos archivos, ya que por ejemplo, es mas facil saber que los cinco logs más nuevos son los logs `` 1-5.gz '' que encontrar que los cinco logs con un numero más grande en su nombre.
+  \item[b)] Estos archivos .gz, son archivos generados por logrotate, un programa que permite  ``una rotación, eliminación, compresión y envió automático de archivos de log'' \cite{logrot1}. Estos archivos son paquetes generados automáticamente según la configuración indicada en \texttt{/etc/logrotate.conf} \cite{logrot}. Los números que aparecen en los nombres de los archivos indican que archivo ha sido el último que se ha creado, es decir, el archivo que empieza por ``1'' es el último que se ha creado ( \cref{fig17} ), aunque esto añade un trabajo extra ( renombrar todos los archivos cada vez que se genera uno nuevo ), supone una ventaja a la hora de realizar scripts que administren esos archivos, ya que por ejemplo, es mas fácil saber que los cinco logs más nuevos son los logs `` 1-5.gz '' que encontrar que los cinco logs con un numero más grande en su nombre.
 \end{description}
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.5\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
         \includegraphics[width=\textwidth]{imagenes/logu}
-        \caption{Log apt Ubuntu.}
+        \caption{Log dpkg Ubuntu.}
     \end{subfigure}
-    \begin{subfigure}[b]{0.5\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
         \includegraphics[width=\textwidth]{imagenes/logs}
         \caption{Log zypper OpenSuse.}
     \end{subfigure}
@@ -48,7 +48,7 @@
 \textit{Indique qué comandos ha utilizado para realizarlo así como capturas de pantalla del proceso de reconstrucción del RAID.}
 \newline
 
-Para realizar esta cuestión, he simulado un fallo por software en el RAID y luego he monitorizado el proceso de reconstrucción. Para esto he realizado el mismo proceso que en la primera práctica, he simulado un fallo, luego he comprobado que el fallo se ha producido correctamente, y por ultimo he retirado y añadido un nuevo disco, este proceso se puede ver en la \cref{fig18}\cite{fault}. Para la monitorización del proceso de reconstrucción se hecho uso de la orden indicada en el guión \texttt{watch -n2 cat /proc/mdstat}, esta orden se encarga de ejecutar un programa periódicamente y mostrarlo en pantalla\cite{watch}, en este caso ejecuta el comando cat cada dos segundos, lo que nos permite ver el como va evolucionando el proceso de reconstrucción del RAID, como se puede ver en \cref{fig19}.
+Para realizar esta cuestión, he simulado un fallo por software en el RAID y luego he monitorizado el proceso de reconstrucción. Para esto he realizado el mismo proceso que en la primera práctica, he simulado un fallo, luego he comprobado que el fallo se ha producido correctamente, y por último he retirado y añadido un nuevo disco, este proceso se puede ver en la \cref{fig18}\cite{fault}. Para la monitorización del proceso de reconstrucción se hecho uso de la orden indicada en el guión \texttt{watch -n2 cat /proc/mdstat}, esta orden se encarga de ejecutar un programa periódicamente y mostrarlo en pantalla\cite{watch}, en este caso ejecuta el comando cat cada dos segundos, lo que nos permite ver el como va evolucionando el proceso de reconstrucción del RAID, como se puede ver en \cref{fig19}.
 
 \begin{figure}[H]
   \begin{center}
@@ -71,7 +71,7 @@ Para realizar esta cuestión, he simulado un fallo por software en el RAID y lue
 \textit{¿qué archivo ha de modificar para programar una tarea? Escriba la línea necesaria para ejecutar una vez al día una copia del directorio ~/codigo a ~/seguridad/\$fecha donde \$fecha es la fecha actual (puede usar el comando date).}
 \newline
 
-Para programar una tarea hay que modificar el archivo crontab \cite{cron} \cite{cron2}. Para ejecutar una orden que realice una vez al día la copia del directorio ~/codigo, se debería incluir una linea en el archivo crontab ( se puede realizar mediante el uso de la orden \texttt{crontab -e}) como la que se puede ver en la  \cref{fig1} \cite{date}.
+Para programar una tarea hay que modificar el archivo crontab \cite{cron} \cite{cron2}. Para ejecutar una orden que realice una vez al día la copia del directorio ~/codigo, se debería incluir una línea en el archivo crontab ( se puede realizar mediante el uso de la orden \texttt{crontab -e}) como la que se puede ver en la  \cref{fig1} \cite{date}.
 
 \begin{figure}[H]
   \begin{center}
@@ -88,7 +88,7 @@ Para programar una tarea hay que modificar el archivo crontab \cite{cron} \cite{
 \textit{Pruebe a ejecutar el comando, conectar un dispositivo USB y vuelva a ejecutar el comando. Copie y pegue la salida del comando. (considere usar dmesg | tail). Comente qué observa en la información mostrada.}
 \newline
 
-Al ejecutar el comando por primera vez obtenemos la información mostrada en la  \cref{fig2}, tras insertar un dispositivo USB, la información mostrada cambia como se muestra en la  \cref{fig3}. En esta información se muestran datos acerca del dispositivo UBS conectado, entre los que se incluyen el nombre del producto, el fabricante y el numero de serie entre otros.
+Al ejecutar el comando por primera vez obtenemos la información mostrada en la  \cref{fig2}, tras insertar un dispositivo USB, la información mostrada cambia como se muestra en la  \cref{fig3}. En esta información se muestran datos acerca del dispositivo USB conectado, entre los que se incluyen el nombre del producto, el fabricante y el numero de serie entre otros.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1\textwidth]{imagenes/dmesg1}
@@ -99,7 +99,7 @@ Al ejecutar el comando por primera vez obtenemos la información mostrada en la 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1\textwidth]{imagenes/dmesg2}
-    \caption{Ejecución de dmesg tras la conexión de un dispositivo USB.}
+    \caption{Ejecución de dmesg tras la conexión de un dispositivo USB, con información acerca de dispositivo conectado.}
     \label{fig3}
   \end{center}
 \end{figure}
@@ -216,12 +216,12 @@ Para este apartado he instalado los monitores lm-sensors y hddtemp, usando el co
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.55\textwidth}
+    \begin{subfigure}[b]{0.75\textwidth}
         \includegraphics[width=\textwidth]{imagenes/sensors2}
         \caption{Ejecución de lm-sensors.}
         \label{fig14}
     \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.75\textwidth}
         \includegraphics[width=\textwidth]{imagenes/hddtemp}
         \caption{Ejecución de hddtemp.}
         \label{fig15}
@@ -231,18 +231,28 @@ Para este apartado he instalado los monitores lm-sensors y hddtemp, usando el co
 
 \section{Otros monitores del sistema}
 \subsection{MUNIM}
-
-
 \subsubsection{Cuestión 7}
 \textit{Visite la web del proyecto y acceda a la demo que proporcionan (\url{http://demo.munin-monitoring.org/}) donde se muestra cómo monitorizan un servidor. Monitorice varios parámetros y haga capturas de pantalla de lo que está mostrando comentando qué observa.}
+\newline
 
-\subsection{NAGIOS}
-\subsubsection{Cuestión opcional 2}
-\textit{Instale Nagios en su sistema (el que prefiera) documentando el proceso y muestre el resultado de la monitorización de su sistema comentando qué aparece.}
+Al acceder a \url{http://demo.munin-monitoring.org/} nos encontramos con una web como la mostrada en la \cref{fig40}, en esta pantalla nos encontramos con gran cantidad de opciones, cada una de ellas nos permite monitorizar alguna parte de nuestro servidor, como puede ser el uso de memoria, el uso de disco, el uso de CPU, el numero de procesos, ademas nos permite monitorizar servicios del servidor como VPN o Apache. Para ver algún ejemplo de las gráficas proporcionadas me he dirigido al apartado y me he centrado en el numero de threads, como se puede ver en \cref{fig41}, donde se ofrece una breve descripción de los gráficos mostrados.
 
-\subsection{GANGLIA}
-\subsubsection{Cuestión opcional 3}
-\textit{Haga lo mismo que con Munin.}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/mun1}
+    \caption{En esta imagen se muestra la pantalla inicial de la demo de Munin.}
+    \label{fig40}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/mun2}
+    \caption{En esta gráfica se muestra el numero de threads que se están ejecutando en el servido, con lo que podemos ver algunas cosas que pueden ser útiles para el administrador de un servidor, por ejemplo al ver la gráfica semana y mensual, se puede observar que la carga que tiene el servidor los fines de semanas es menor que los días laborales, además en la primera gráfica podemos ver en que horas el servidor tiene mas carga de tareas.}
+    \label{fig41}
+  \end{center}
+\end{figure}
+
 
 \subsection{ZABBIX}
 \subsubsection{Cuestión opcional 4}
@@ -252,7 +262,7 @@ En esta cuestión he llevado a cabo la instalación y configuración de Zabbix e
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1\textwidth]{imagenes/zab1}
-    \caption{Descarga del repositorio de ZABBIX.}
+    \caption{Descarga del repositorio de Zabbix.}
     \label{fig30}
   \end{center}
 \end{figure}
@@ -276,7 +286,7 @@ En esta cuestión he llevado a cabo la instalación y configuración de Zabbix e
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1\textwidth]{imagenes/zab4}
-    \caption{Instalación de ZABBIX y sus requisitos.}
+    \caption{Instalación de Zabbix y sus requisitos.}
     \label{fig33}
   \end{center}
 \end{figure}
@@ -284,7 +294,7 @@ En esta cuestión he llevado a cabo la instalación y configuración de Zabbix e
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.75\textwidth]{imagenes/zab5}
-    \caption{Configurcion de una base de datos para ZABBIX.}
+    \caption{Configurcion de una base de datos para Zabbix.}
     \label{fig34}
   \end{center}
 \end{figure}
@@ -292,17 +302,17 @@ En esta cuestión he llevado a cabo la instalación y configuración de Zabbix e
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.75\textwidth]{imagenes/zab6}
-    \caption{Configuración obligatoria de la zona horaria de ZABBIX en el archivo \texttt{/etc/apache2/conf-avaible/zabbix.conf}.}
+    \caption{Configuración obligatoria de la zona horaria de Zabbix en el archivo \texttt{/etc/apache2/conf-avaible/Zabbix.conf}.}
     \label{fig35}
   \end{center}
 \end{figure}
 
-Tras esto, accedemos a Zabbix mediante un navegador web haciendo uso de la IP de nuestro servidor ( 192.168.56.101/zabbix ) y nos aparecerá un asistente de configuración ( \cref{fig36} ) en el que deberemos introducir nuestra contraseña y nuestra IP en lugar de localhost, una vez realizado esto debemos instalar zabbix-agent ( \cref{fig37} ), que es el proceso que se encargara de mandar la información del servidor al servidor de Zabbix ( en este caso son la misma máquina por lo que no hay que modificar la configuración de zabbix-agent donde se indica la IP del servidor). Por último entramos en 192.168.56.101/zabbix y accedemos con el usuario ``Admin'' y la contraseña ``zabbix''. Una vez dentro nos dirigimos al apartado Configuration/Host y habilitamos el servidor que queremos monitorizar ( \cref{fig38} ). Con esto lo tenemos todo funcionando y ya podemos monitorizar nuestro servidor mediante las diferentes opciones que el Zabbix ofrece como el uso de graficas mostrado en la (\cref{fig39}).   
+Tras esto, accedemos a Zabbix mediante un navegador web haciendo uso de la IP de nuestro servidor ( 192.168.56.101/Zabbix ) y nos aparecerá un asistente de configuración ( \cref{fig36} ) en el que deberemos introducir nuestra contraseña y nuestra IP en lugar de localhost, una vez realizado esto debemos instalar Zabbix-agent ( \cref{fig37} ), que es el proceso que se encargara de mandar la información del servidor al servidor de Zabbix ( en este caso son la misma máquina por lo que no hay que modificar la configuración de Zabbix-agent donde se indica la IP del servidor). Por último entramos en 192.168.56.101/Zabbix y accedemos con el usuario ``Admin'' y la contraseña ``Zabbix''. Una vez dentro nos dirigimos al apartado Configuration/Host y habilitamos el servidor que queremos monitorizar ( \cref{fig38} ). Con esto lo tenemos todo funcionando y ya podemos monitorizar nuestro servidor mediante las diferentes opciones que el Zabbix ofrece como el uso de gráficas mostrado en la (\cref{fig39}).   
 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1\textwidth]{imagenes/zab9}
-    \caption{Instalación de zabbix-agent.}
+    \caption{Instalación de Zabbix-agent.}
     \label{fig36}
   \end{center}
 \end{figure}
@@ -310,7 +320,7 @@ Tras esto, accedemos a Zabbix mediante un navegador web haciendo uso de la IP de
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1\textwidth]{imagenes/asist}
-    \caption{Asistente de configuracion Zabbix.}
+    \caption{Asistente de configuración Zabbix.}
     \label{fig37}
   \end{center}
 \end{figure}
@@ -352,16 +362,60 @@ Tras esto, accedemos a Zabbix mediante un navegador web haciendo uso de la IP de
 \end{figure}
 
 
-\subsection{CACTI}
-\subsubsection{Cuestión opcional 5}
-\textit{Pruebe a instalar este monitor es alguno de sus tres sistemas. Realice capturas de pantalla del proceso de instalación y comente capturas de pantalla del programa en ejecución.}
 \subsection{AWSTATS}
-
-
 \subsubsection{Cuestión opcional 6}
 \textit{Instale el monitor y muestre y comente algunas capturas de pantalla.}
 
-
+Para realizar esta cuestión me he apoyado en el manual disponible en \cite{aws}. Los pasos para la instalación, están explicados en las \crefrange{fig42}{fig43}.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/aw1}
+    \caption{En esta figura añadimos el repositorio RPMForge a yum.}
+    \label{fig42}
+  \end{center}
+\end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/aw2}
+    \caption{Tras ejecutar \texttt{yum update} procedemos a instalar AWStats con el comando indicado.}
+    \label{fig43}
+  \end{center}
+\end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/aw3}
+    \caption{Una vez AWStats esta instalado, editamos en archivo\newline\texttt{ /etc/httpd/conf.d/awstats.conf} añadiendo las tres ultimas líneas.}
+    \label{fig44}
+  \end{center}
+\end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/aw4}
+    \caption{En esta imagen se muestra la edición que hay que realizar en \newline\texttt{/etc/awstats/awstats.localhost.localdomain.conf} (añadir un nombre a SiteDomain).}
+    \label{fig45}
+  \end{center}
+\end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/aw5}
+    \caption{En este paso se mueve el archivo anteriormente a otro en el que se indica el nombre que pusimos en SiteDomain.}
+    \label{fig46}
+  \end{center}
+\end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/aw6}
+    \caption{Por último ejecutamos el comando mostrado en la figura,para actualizar las estadísticas del servidor sin tener que esperar a que se actualicen solas..}
+    \label{fig47}
+  \end{center}
+\end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/aw7}
+    \caption{En este paso accedemos a la URL que aparece en la imagen para verificar que AWStats esta funcionando correctamente con lo que obtenemos la pagina inicial de AWStats con un resumen de las estadísticas de nuestro caso, en este caso no hay mucha información, ya que AWStats esta recién instalado (solo se muestra que ha habido 2 hits (peticiones de archivos que ha realizado el visitante \cite{aws2}).}
+    \label{fig48}
+  \end{center}
+\end{figure}
 \subsection{Monitorizando un servicio (o ejecución de un programa)}
 \subsubsection{Cuestión 8}
 \textit{Escriba un breve resumen sobre alguno de los artículos donde se muestra el uso de strace o busque otro y coméntelo.}
@@ -370,26 +424,15 @@ Tras esto, accedemos a Zabbix mediante un navegador web haciendo uso de la IP de
 Para esta cuestión he usado el primer articulo \cite{fw}.En el Chad Fowler comienza haciendo una introducción en la que explica que gracias a la herramienta de UNIX strace, pudo solucionar un problema que tenia con un servidor con Lotus Domino que usaba UNIX. Tras esta, se explica que es strace. 
 
 
-Strace es una herramienta de la linea de comandos que permite seguir las llamadas al sistema y las señales recibidas por un proceso en concreto y sus hijos. Tras dar una breve explicación de que es strace, el autor procede a hacer un demostración con un programa en C muy sencillo ( como el típico Hola Mundo ) y muestra la salida producida por la orden \texttt{strace -s 2000 -f ./traceme}, los parámetros pasados a strace significan: \texttt{-s 2000} sirve para indicar el tamaño máximo de los string que se quieren imprimir y \texttt{-f} se usa para indicar que se sigan todos los hijos del programa pasado como argumento. Después en los a partir del párrafo cuatro hasta el final de la sección, se explican algunas de las cosas que se muestran en la salida, como \texttt{execve(), write() y mmap() }.
+Strace es una herramienta de la línea de comandos que permite seguir las llamadas al sistema y las señales recibidas por un proceso en concreto y sus hijos. Tras dar una breve explicación de que es strace, el autor procede a hacer un demostración con un programa en C muy sencillo ( como el típico Hola Mundo ) y muestra la salida producida por la orden \texttt{strace -s 2000 -f ./traceme}, los parámetros pasados a strace significan: \texttt{-s 2000} sirve para indicar el tamaño máximo de los string que se quieren imprimir y \texttt{-f} se usa para indicar que se sigan todos los hijos del programa pasado como argumento. Después en los a partir del párrafo cuatro hasta el final de la sección, se explican algunas de las cosas que se muestran en la salida, como \texttt{execve(), write() y mmap() }.
 
 Tras esta introducción se muestra el uso de strace sobre un proceso real que ya se esta ejecutando, en este apartado para poder conectar con un proceso que ya se esta ejecutando se hace uso de \texttt{-p pid} y ademas se añade la opción \texttt{-o} para indicar donde queremos guardar la salida de strace, ya que al ser un proceso real la salida será demasiado grande como para verla en la terminal, y ademas se muestra que para dejar de seguir al proceso se hace uso de \texttt{Ctrl+C}. Una vez ejecutado strace sobre el proceso se vuelve a dar una explicación sobre lo que se muestra, y se comentan nuevos datos como \texttt{select(), fstat(),recvfrom()}, la utilidad de \texttt{-e raw=} y el comando \texttt{lsof}, tras esto haciendo uso de las cosas nombradas anteriormente y algunas mas se sacan algunas conclusiones sobre el funcionamiento del programa que se esta examinando, por ejemplo que \texttt{accept4()} tiene un devuelve numero relativamente alto de fallos y que el proceso pasa la mayor parte del tiempo esperando algo ( la mayor parte del tiempo es consumida por \texttt{select()}, que se usa para esperar conexiones. 
-Tras esta seccion se explica como usar strace para averiguar que es lo que provoca los problemas de rendimiento en nuestro sistema, para explicar esto se hace uso de un programa en C muy simple y se ejecuta con strace haciendo uso de la opcion \texttt{-T} que sirve para que se muestre el tiempo de cada llamada al sistema y explica que en la vida real podríamos guardar la salida y ordenarla para encontrar las llamadas mas lentas. 
+Tras esta sección se explica como usar strace para averiguar que es lo que provoca los problemas de rendimiento en nuestro sistema, para explicar esto se hace uso de un programa en C muy simple y se ejecuta con strace haciendo uso de la opción \texttt{-T} que sirve para que se muestre el tiempo de cada llamada al sistema y explica que en la vida real podríamos guardar la salida y ordenarla para encontrar las llamadas mas lentas. 
 
 
 Para finalizar el autor menciona que existen más casos en los que se puede usar strace y en relación al problema inicial, dice que consiguieron solucionar el problema del servidor Lotus Domino.
 
 \section{Profiling}
-\subsection{GPROF Y VALGRIND}
-
-
-\subsubsection{Cuestión opcional 7}
-\textit{Desarrolle una página en C o C++ y analice su comportamiento usando valgrind. Visite http://www.cs.tut.fi/~jkorpela/forms/cgic.html para ver un ejemplo sencillo de una página web generada por un programa escrito en C.}
-\subsection{PHP}
-
-
-\subsubsection{Cuestión opcional 8}
-\textit{Desarrolle un script en PHP y analice su ejecución con alguno (o los dos) profilers.}
-
 
 \subsection{PYTHON}
 \subsubsection{Cuestión opcional 9}
@@ -424,14 +467,6 @@ El significado de las diferentes columnas es \cite{cprofile}:
     \label{fig21}
   \end{center}
 \end{figure}
-
-\subsection{POWERSHELL}
-
-
-\subsubsection{Cuestión opcional 10}
-\textit{Escriba un script en PowerShell y analice su comportamiento usando el profiler presentado.}
-\subsection{MySQL}
-
 
 
 \subsubsection{Cuestión 9}
@@ -497,10 +532,6 @@ Para probar el profile primero lo he habilitado como se puede ver en \cref{fig25
     \label{fig28}
   \end{center}
 \end{figure}
-
-\subsection{MongoDB}
-\subsubsection{Cuestión opcional 11}
-\textit{Al igual que ha realizado el ``profiling'' con MySQL, realice lo mismo con MongoDB y compare los resultados (use la misma información y la misma consulta, hay traductores de consultas SQL a Mongo).}
 
 %*************************************************************
 \newpage
