@@ -92,7 +92,7 @@ El comando \texttt{-c 5} significa que se ejecutaran 5 peticiones concurrentemen
 \textit{Ejecute ab contra a las tres máquinas virtuales (desde el SO anfitrión a las máquina virtuales de la red local) una a una (arrancadas por separado) y muestre y comente las estadísticas. ¿Cuál es la que proporciona mejores resultados? Fíjese en el número de bytes transferidos, ¿es igual para cada máquina?}
 \newline
 
-Para la ejecución del comando \texttt{ab -c 50 -n 100000 ip\_máquina:80/} la que proporciona mejores resultados es la de Windows Server (\cref{fig5})ya que IIS obtiene un rendimiento de 1828,63 peticiones por segundo y tiene un tiempo de respuesta de 0,547 ms, mientras que en Ubuntu ( Apache 2.4.7 ) (\cref{fig3}) se obtiene un rendimiento de 1730,06 peticiones por segundo y un tiempo de respuesta 0,578 ms, en última posición quedaría el servidor con CentOS (Apache 2.2.15 ) (\cref{fig4})  que consigue un rendimiento de 1338,26 peticiones por segundo y un tiempo de respuesta de 0,747 ms.\cite{ab} ( Ver figura \ref{fig6} )
+Para la ejecución del comando \texttt{ab -c 50 -n 100000 ip\_máquina:80/} la que proporciona mejores resultados es la de Windows Server (\cref{fig5})ya que IIS obtiene un rendimiento de 1828,63 peticiones por segundo y tiene un tiempo de respuesta de 0,547 ms, mientras que en Ubuntu ( Apache 2.4.7 ) (\cref{fig3}) se obtiene un rendimiento de 1730,06 peticiones por segundo y un tiempo de respuesta 0,578 ms, en última posición quedaría el servidor con CentOS (Apache 2.2.15 ) (\cref{fig4})  que consigue un rendimiento de 1338,26 peticiones por segundo y un tiempo de respuesta de 0,747 ms.\cite{ab} ( Ver figura \ref{fig6} ). El número de bytes transferido difiere entre las distintas máquinas, esto se debe a que la página solicitada no es igual en todas ellas ( el tamaño se indica en la variable \textbf{Document Length} ), además de que en alguna es posible que los paquetes vayan comprimidos.
 
 \begin{figure}[H]
     \centering
@@ -130,19 +130,14 @@ Para la ejecución del comando \texttt{ab -c 50 -n 100000 ip\_máquina:80/} la q
   \end{center}
 \end{figure}
 
-\subsection{Gatling}
-\subsubsection{Cuestión opcional 2}
-\textit{¿Qué es Scala? Instale Gatling y pruebe los escenarios por defecto.}
 
 \subsection{Jmeter}
-\subsubsection{Cuestión opcional 3}
-\textit{Lea el artículo y elabore un breve resumen.}
 
 \subsubsection{Cuestión 4}
 \textit{Instale y siga el tutorial en \url{http://jmeter.apache.org/usermanual/build-web-test-plan.html} realizando capturas de pantalla y comentándolas. En vez de usar la web de jmeter, haga el experimento usando alguna de sus máquinas virtuales (Puede hacer una página sencilla, usar las páginas de phpmyadmin, instalar un CMS, etc.).}
 \newline
 
-Para realizar esta cuestión, en primer lugar, debemos conseguir JMeter, esto se puede hacer de dos formas, descargando el programa de \cite{jm} o mediante la orden \texttt{sudo apt-get install jmeter} en Ubuntu. Si optamos por el primer método deberemos extraer el archivo descargado y dentro, en la carpeta /bin, ejecutar \texttt{./jmeter.sh}. Una vez que tenemos JMeter funcionando podemos proceder a seguir el tutorial disponible en \cite{tut}, en mi caso voy a realizar peticiones a phpMyAdmin. El proceso de configuración se puede ver en las \crefrange{fig7}{fig10}.
+Para realizar esta cuestión, en primer lugar, debemos conseguir JMeter, esto se puede hacer de dos formas, descargando el programa de \cite{jm} o mediante la orden \texttt{sudo apt-get install jmeter} en Ubuntu. Si optamos por el primer método deberemos extraer el archivo descargado y dentro, en la carpeta /bin, ejecutar \texttt{./jmeter.sh}. Una vez que tenemos JMeter funcionando podemos proceder a seguir el tutorial disponible en la web de JMeter \cite{tut}, en mi caso voy a realizar peticiones a phpMyAdmin. El proceso de configuración se puede ver en las \crefrange{fig7}{fig10}.
 
 \begin{figure}[H]
   \begin{center}
@@ -184,6 +179,25 @@ Para realizar esta cuestión, en primer lugar, debemos conseguir JMeter, esto se
 \subsubsection{Cuestión opcional 4}
 \textit{Seleccione un benchmark entre SisoftSandra y Aida.
 Ejecútelo y muestre capturas de pantalla comentando los resultados.}
+\newline
+
+En primer lugar he instalado SisoftSandra y Aida, ambas instalaciones han sido bastante simples. Luego he ejecutado un benchmark llamado CPU PhotoWorxx que realiza operaciones comunes de manipulación de imágenes sobre un imagen muy grande \cite{aida} ( \cref{aida} ) en el se muestra información acerca del ordenador y cuantos  megapixeles se han procesado por segundo. Por otro lado he ejecutado un benchmark de aritmética del procesador en SisoftSandra, este benchmark muestra una enorme cantidad de información ( \cref{sandra} )  entre la que se incluye la información de rendimiento, rendimiento frente a energía y rendimiento frente a velocidad.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{imagenes/aida}
+    \caption{Ejecucion del benchamark CPU PhotoWorxx en Aida.}
+    \label{aida}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{imagenes/sandra}
+    \caption{Ejecución del benchmark de aritmética de Sandra.}
+    \label{sandra}
+  \end{center}
+\end{figure}
 
 \section{Más benchmarks}
 \subsection{Cuestión 5}
@@ -194,6 +208,32 @@ Ejecútelo y muestre capturas de pantalla comentando los resultados.}
   \item Instrucciones para su uso
   \item Ejemplo de uso analizando los resultados
 \end{enumerate}}
+
+\begin{enumerate}
+  \item El objetivo del benchmark realizado es obtener unos tiempos para poder comparar distintas CPU sin que se tenga que hacer uso de RAM y disco duro, para que esos componentes no afecten al resultado del rendimiento de la CPU, el benchmark, consiste en el cálculo de PI haciendo uso de la integral: $$ \pi = \int_{0}^{1} \frac{4}{1+x^{2}} $$ Esta cálculo se lleva a cabo de forma secuencial y de forma paralela. He elegido este cálculo porque es apto para ser paralelizado y además no se necesita guardar muchos datos, por lo que el uso de memoria RAM será mínimo.
+  
+  \item La ejecución del benchmark devuelve dos aproximaciones de $\pi$ , que no tienen interés a la hora de comparar las CPU y además devuelve \textbf{dos tiempos}, uno de la \textbf{ejecución secuencial} y otro de la \textbf{ejecución en paralelo}. El tiempo de la ejecución secuencial, nos indica el tiempo que ha tardado la realización del cálculo haciendo uso de una sola hebra, por lo tanto nos permite comparar que CPU es más rápida para la ejecución de aplicaciones secuenciales, el otro tiempo mostrado, es el requerido para hacer el cálculo en paralelo haciendo uso de todas las hebras del procesador, lo que nos permite comparar que CPU tiene un mayor rendimiento total y para aplicaciones paralelas.
+  
+  \item Para usar este benchmark en primer lugar hay que compilarlo mediante la orden \texttt{``g++ -fopenmp benchmark.cpp -o benchmark''}, tras la compilación se puede ejecutar mediante \texttt{``./benchmark''}. Una vez que lo ejecutamos nos pide el número de iteraciones que se van a llevar a cabo para el cálculo de $\pi$ , y luego se pregunta por el número de veces que se va a realizar el cálculo, cuanto mayor sea este número, el valor del tiempo se ajustará mejor a la realidad ya que se realizará la media de los tiempos tomados en más ocasiones.
+  
+  \item Para mostrar el uso del benchmark he realizado las ejecuciones mostradas en la \cref{fig16} y en la \cref{fig17}. Tras mirar los tiempos del benchmark podemos ver que la CPU \texttt{ Pentium Dual-Core E5400} ( \cref{fig16} ) obtiene un mejor tiempo para el uso de una sola hebra (algo que cabía esperar dado que su frecuencia de reloj es muy superior a la de la otra CPU) por lo que podríamos decir que la CPU\texttt{ Pentium Dual-Core}, es mejor que la otra CPU para la ejecución de una aplicación que solo use una hebra. En cambio el tiempo obtenido por la CPU \texttt{Intel Core i5 4210U}( \cref{fig17} ) para la ejecución paralela es mejor que el de la CPU\texttt{ Pentium Dual-Core}, probablemente porque la CPU \texttt{Intel Core i5} tiene cuatro hebras y la otra solo tiene dos, por lo cual podemos concluir que la CPU \texttt{Pentium Dual-Core E5400} es mejor para al ejecución de una aplicación que requiera de una sola hebra, mientras que la CPU \texttt{Intel Core i5 4210U} es mejor en caso de que la aplicación use múltiples hebras.
+\end{enumerate}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/bench1}
+    \caption{Ejecución del benchmark en un ordenador con una CPU Intel\textregistered\ Pentium\textregistered\ Dual-Core E5400 a 2,7GHz.}
+    \label{fig16}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{imagenes/bench2}
+    \caption{Ejecución del benchmark en un ordenador con una CPU Intel\textregistered\ Core\texttrademark\ i5 4210U CPU a 1.70GHz.}
+    \label{fig17}
+  \end{center}
+\end{figure}
 %*************************************************************
 \newpage
 \bibliographystyle{ieeetr}
