@@ -15,17 +15,18 @@
 \textit{Al modificar los valores del kernel de este modo, no logramos que persistan después de reiniciar la máquina. ¿Qué archivo hay que editar para que los cambios sean permanentes?}
 \newline
 
-Para que los cambios realizados en los parámetros del kernel sen permanentes, es necesario realizarlos en el archivo /etc/sysctl.conf \cite{s1} \cite{s2}
+Para que los cambios realizados en los parámetros del kernel sean permanentes, es necesario realizarlos en el archivo \texttt{/etc/sysctl.conf }\cite{s1} \cite{s2}
 
 \subsubsection{Cuestión 2}
 \textit{¿Con qué opción se muestran todos los parámetros modificables en tiempo de ejecución? Elija dos parámetros y expliqué, en dos líneas, qué función tienen.}
 \newline
 
-El comando para que se muestren todos los parámetros modificables es \texttt{sysctl -a} \cite{s3}. Uno de los parámetros más interesantes que he encontrado es vm.\texttt{swappiness}, este parámetro indica al kernel como administrar la RAM, puede tomar un valor entre 0 y 100,  si se usa un valor pequeño el kernel intentará no hacer uso de swap mientras que si se usa un valor grande hará más uso de swap.\cite{sw} Otro parámetro es net.ipv4.\texttt{icmp\_echo\_ignore\_broadcasts} que si tiene un valor distinto de 0 hará que el kernel ignore todas las peticiones de ICMP ECHO y TIMESTAMP enviadas por multicast o broadcast.\cite{net}
+El comando para que se muestren todos los parámetros modificables es \texttt{sysctl -a} \cite{s3}. Uno de los parámetros más interesantes que he encontrado es vm.\texttt{swappiness}, este parámetro indica al kernel como administrar la RAM y la memoria de intercambio (swap), puede tomar un valor entre 0 y 100,  si se usa un valor pequeño el kernel intentará no hacer uso de memoria swap mientras que si se usa un valor grande hará más uso de swap.\cite{sw} Otro parámetro es net.ipv4.\texttt{icmp\_echo\_ignore\_broadcasts} que si tiene un valor distinto de 0 hará que el kernel ignore todas las peticiones de ICMP ECHO y TIMESTAMP enviadas por multicast o broadcast.\cite{net}
 
 \subsection{Windows: Edición del registro}
 \subsubsection{Cuestión 3}
 \textit{Realice una copia de seguridad del registro y restaurela, ilustre el proceso con capturas.}
+\newline
 
 El proceso para realizar una copia de seguridad descrito en consiste en exportar el registro. \cite{bac} El proceso seguido para llevar a cabo esto se muestra y describe en las \crefrange{fig1}{fig3}.
 \begin{figure}[H]
@@ -93,7 +94,7 @@ Ahora que ya hemos modificado el registro, procedemos a restaurar el registro an
 \textit{¿Cómo se abre una consola en Windows? ¿Qué comando hay que ejecutar para editar el registro? Muestre su ejecución con capturas de pantalla.}
 \newline
 
-Para abrir una consola en Windows debemos dirigirnos a inicio y buscar cmd o Símbolo del sistema y ejecutar la aplicación, también existe la posibilidad de abrir la consola PowerShell si esta disponible.\cite{cmd} Para editar el registro debemos ejecutar el comando \texttt{REG} \cite{reg1}\cite{reg2} mostrado en la \cref{fig8}.
+Para abrir una consola en Windows debemos dirigirnos a inicio y buscar cmd o Símbolo del sistema y ejecutar la aplicación, también existe la posibilidad de abrir la consola PowerShell en caso de que esté disponible.\cite{cmd} Para editar el registro debemos ejecutar el comando \texttt{REG} \cite{reg1}\cite{reg2} mostrado en la \cref{fig8}.
 
 \begin{figure}[H]
   \begin{center}
@@ -105,6 +106,7 @@ Para abrir una consola en Windows debemos dirigirnos a inicio y buscar cmd o Sí
 
 \subsubsection{Cuestión 5}
 \textit{Las cadenas de caracteres y valores numéricos tienen distintos tipos. Busque en la documentación de Microsoft y liste todos los tipos de valores.}
+\newline
 
 Los tipos exixstentes son: \cite{reg3}
 \begin{enumerate}
@@ -114,10 +116,10 @@ Los tipos exixstentes son: \cite{reg3}
     \item \textbf{REG\_DWORD\_BIG\_ENDIAN:} Número de 32 bits en formato big-endian.
     \item \textbf{REG\_EXPAND\_SZ: }Cadena terminada en null que contiene referencias sin expandir a variables de entorno.
     \item \textbf{REG\_LINK: }Cadena terminada en null que contiene la ruta de un enlace simbólico.
-    \item \textbf{REG\_MULTI\_SZ:} Secuencia de cadenas terminadas en null terminada por una cadena vacía (\\0).
+    \item \textbf{REG\_MULTI\_SZ:} Secuencia de cadenas terminadas en null terminada por una cadena vacía ( $\backslash$0 ).
     \item \textbf{REG\_NONE: }Sin tipo de valor definido.
-    \item \textbf{REG\_QWORD: }Numero de 64 bits.
-    \item \textbf{REG\_QWORD\_LITTLE\_ENDIAN:} Numero de 64 bits en formato little-endian.
+    \item \textbf{REG\_QWORD: }Número de 64 bits.
+    \item \textbf{REG\_QWORD\_LITTLE\_ENDIAN:} Número de 64 bits en formato little-endian.
     \item \textbf{REG\_SZ: }Cadena terminada en null.
 \end{enumerate}
 
@@ -126,11 +128,12 @@ Los tipos exixstentes son: \cite{reg3}
 \subsection{Servidor web: Apache e IIS}
 \subsubsection{Cuestión 6}
 \textit{Enumere qué elementos se pueden configurar en Apache y en IIS para que Moodle funcione mejor.}
+\newline
 
 En Apache se pueden modificar numerosos parámetros para que funcione mejor, como son: \cite{moda}
 \begin{itemize}
     \item \textbf{MaxClient }que debe ser ajustado según la formula $MaxCliente = Memoria\ total\ disponible * 80 \% / Memoria\ máxima\ usada\ por\ el\ proceso\ apache$
-    \item Reducir el número de \textbf{modulos que Apache }carga.
+    \item Reducir el número de \textbf{modulos que Apache carga}.
     \item Bajar el valor de \textbf{MaxRequestPerChild} a 20-30.
     \item Establecer \textbf{KeepAlive} a off.
     \item Bajar \textbf{KeepAliveTimeout} a 2-5 segundos.
@@ -150,14 +153,84 @@ Por otro lado para IIS se pueden realizar modificaciones como: \cite{modi}
 \subsubsection{Cuestión 7}
 \textit{Ajuste la compresión en el servidor y analice su
 comportamiento usando varios valores para el tamaño a de archivo partir del cual comprimir. Para comprobar que está comprimiendo puede usar el navegador o comandos como curl (see url) o lynx. Muestre capturas de pantalla de todo el proceso.}
+\newline
 
-En esta cuestión voy a modificar la compresión en IIS, para ello nos dirigimos a administrador de IIS y pinchamos en compresión ( \cref{fig9}), una vez ahí seleccionamos el tamaño en bytes a partir del cual se va a comprimir y aplicamos los cambios ( \cref{fig10}). Con el parámetro modificado para que comprima los archivos con un tamaño superior a un byte nos dirigimos al navegador y verificamos que la web servida por IIS ha sido comprimida como se ve en la \\cref{fig11}.
+En esta cuestión voy a modificar la compresión en IIS, para ello nos dirigimos a administrador de IIS y pinchamos en compresión ( \cref{fig9}), una vez ahí seleccionamos el tamaño en bytes a partir del cual se va a comprimir y aplicamos los cambios ( \cref{fig10}). Con el parámetro modificado para que comprima los archivos con un tamaño superior a un byte nos dirigimos al navegador y verificamos que la web servida por IIS ha sido comprimida como se ve en la \cref{fig11}.
+
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{imagenes/9}
+    \caption{Administrador de IIS.}
+    \label{fig9}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{imagenes/10}
+    \caption{Configuración de la compresión.}
+    \label{fig10}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{imagenes/11}
+    \caption{Comprobación de IIS esta comprimiendo la web servida.}
+    \label{fig11}
+  \end{center}
+\end{figure}
+
 
 \subsection{Servicios de libre elección}
 \subsubsection{Cuestión 8}
 \textit{Usted parte de un SO con ciertos parámetros definidos en la instalación (Práctica 1), ya sabe instalar servicios (Práctica 2) y cómo monitorizarlos (Práctica 3) cuando los somete a cargas (Práctica 4). Al igual que ha visto cómo se puede mejorar un servidor web (Práctica 5 Sección 3.1), elija un servicio (el que usted quiera) y modifique un parámetro para mejorar su comportamiento. (9.b) Monitorice el servicio antes y después de la modificación del parámetro aplicando cargas al sistema (antes y después) mostrando los resultados de la monitorización.}
-\subsubsection{Cuestión opcional 1}
-\textit{Realice lo mismo que en la cuestión 8 pero para otro servicio.}
+\newline
+
+En esta cuestión voy a modificar dos parámetros de Apache 2 para mejorar su rendimiento. Antes de realizar las optimizaciones los resultados obtenidos con ab ( Apache Benchmark ) son los mostrados a continuación:
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{imagenes/12}
+    \caption{Ejecución de AB con la configuración por defecto de Apache.}
+    \label{fig12}
+  \end{center}
+\end{figure}
+
+Una vez que sabemos cuales son los resultados con la configuración pro defecto vamos a cambiar algunas cosas para que el rendimiento del servidor se incremente. En primer lugar podemos desactivar los módulos que no estamos usando y que están activos, estos módulos se pueden consultar en el directorio \texttt{/etc/apache2/mods-enabled}. Para desactivar los módulos que no necesitamos usaremos el comando \texttt{a2dismod}, en mi caso solo he desactivado el modulo de PHP5 como se puede ver en la \cref{fig13}. Además de esta modificación también vamos a cambiar el parámetro \texttt{MaxRequestWorkers}( llamado \texttt{MaxClients} en las versiones anteriores a la 2.3.13) a un valor más bajo ya que mi servidor tan solo tiene 512MB de RAM y con el valor predeterminado, al tener muchos clientes, la RAM puede llegar a llenarse y comenzar a hacer uso de memoria swap ralentizando mucho el servidor. Para modificar ese parámetro nos dirigimos a\texttt{ /etc/apache2/mods-enabled/mpm\_prefork.conf} ( el archivo puede encontrarse en otro directorio ) y lo editamos como se ve en la \cref{fig14}. \cite{per1}\cite{per2}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{imagenes/13}
+    \caption{Desactivación de un modulo de Apache.}
+    \label{fig13}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{imagenes/14}
+    \caption{Modificación del parámetro \texttt{MaxRequestWorkers}.}
+    \label{fig14}
+  \end{center}
+\end{figure}
+
+Tras realizar estas modificaciones volvemos a ejecutar ab igual que antes (\texttt{ab -n 100000 -c 80 192.168.56.102/}) y obtenemos los resultados de la \cref{fig15}. En estos resultados se pueden observar algunas mejoras, por ejemplo:
+\begin{itemize}
+    \item La tasa de transferencia ( transfer rate ) se ha incrementado de 18553 KB/sec a 20455 KB/sec.
+    \item El tiempo por petición a bajado de 49ms a 45ms.
+    \item El 99\% de las peticiones se han servido en menos de 128ms mientras que antes este tiempo era de 379ms.
+\end{itemize}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{imagenes/15}
+    \caption{Ejecución de AB con las mejoras realizadas.}
+    \label{fig15}
+  \end{center}
+\end{figure}
+
 %*************************************************************
 \newpage
 \bibliographystyle{ieeetr}
